@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { FiSearch } from "react-icons/fi";
-import { FaRegHeart } from "react-icons/fa";
-import { IoCartOutline } from "react-icons/io5";
+import SearchMain from "./SearchMain";
+
 
 const DesktopNavbar = ({
   NavItem,
@@ -25,26 +24,7 @@ const DesktopNavbar = ({
         ))}
       </ul>
       {/* search input and cart */}
-      <div className="hidden md:flex items-center gap-6">
-        <button className="w-60 h-9 flex items-center justify-between bg-gray-100 rounded text-black/80 px-4 cursor-pointer">
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            className="border p-1 text-[14px] border-none outline-none cursor-pointer "
-            disabled
-          />
-
-          <span>
-            <FiSearch size={20} className="text-black/90" />
-          </span>
-        </button>
-        <span>
-          <FaRegHeart size={20} className="text-black/90" />
-        </span>
-        <span>
-          <IoCartOutline size={26} className="text-black/90" />
-        </span>
-      </div>
+      <SearchMain/>
     </div>
   );
 };

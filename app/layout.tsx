@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./_components/Navbar";
 import { ContextToggleProvider } from "@/context/NavbarToggleContext";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
