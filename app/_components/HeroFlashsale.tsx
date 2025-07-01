@@ -4,7 +4,7 @@ import ProductButton from "./ProductButton";
 
 const HeroFlashsale = () => {
   return (
-    <div className="w-full md:h-[800px] flex flex-col items-center justify-center md:gap-20 md:mt-28 border-b border-gray-300">
+    <div className="w-full md:h-[750px] flex flex-col items-center justify-center md:gap-20 md:mt-16 border-b border-gray-300">
       <FlashsaleCarousel />
       <ProductButton />
     </div>

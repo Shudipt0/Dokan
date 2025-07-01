@@ -16,7 +16,7 @@ const NavItem = [
 
 const Navbar = () => {
   return (
-    <div className="h-28 bg-white border-b border-gray-300">
+    <div className="h-28 border border-gray-300">
       {/* upper nav */}
      <TopNavbar/>
       {/* main navbar */}

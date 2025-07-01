@@ -6,6 +6,8 @@ import HeroFlashsale from "./_components/HeroFlashsale";
 import HeroCategoryBoxs from "./_components/HeroCategoryBoxs";
 import HeroSelling from "./_components/HeroSelling";
 import HeroCategoryBanner from "./_components/HeroCategoryBanner";
+import HeroAllProducts from "./_components/HeroAllProducts";
+import HeroDelivery from "./_components/HeroDelivery";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
           <HeroCategoryBoxs/>
           <HeroSelling/>
           <HeroCategoryBanner/>
+          <HeroAllProducts/>
+          <HeroDelivery/>
       </div>
 
      <SearchModal/>
