@@ -11,6 +11,7 @@ const HeroCarousel = () => {
       showArrows={false}
       infiniteLoop={true}
       showStatus={false}
+      showThumbs={false}
       className="w-[95%] md:h-[344px]">
         <div className=" ">
           <Image src={hero1} alt="hero1 image" className=" w-full md:h-[344px] bg-cover" />

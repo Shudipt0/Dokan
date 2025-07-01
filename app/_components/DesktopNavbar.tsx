@@ -11,7 +11,7 @@ const DesktopNavbar = ({
     <div className="hidden container mx-auto h-16 md:flex items-center justify-between px-14">
       {/* logo */}
       <div>
-        <Link href="/" className="text-lg font-bold">
+        <Link href="/" className="text-lg text-black/80 font-bold">
           Exclusive
         </Link>
       </div>
