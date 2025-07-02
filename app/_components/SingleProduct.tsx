@@ -4,7 +4,7 @@ import SingleProductDetails from './SingleProductDetails'
 
 const SingleProduct = () => {
   return (
-    <div className='w-full flex justify-between'>
+    <div className='w-full flex justify-center gap-10 '>
         {/* image section */}
         <SingleProductImage/>
         {/* deatils section */}
