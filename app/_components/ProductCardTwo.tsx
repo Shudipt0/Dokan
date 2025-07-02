@@ -1,17 +1,16 @@
-import { CiHeart } from "react-icons/ci";
-import { IoEyeOutline } from "react-icons/io5";
+import React from 'react'
 import Rating from './Rating'
+import { CiHeart } from 'react-icons/ci'
+import { IoEyeOutline } from 'react-icons/io5'
 
-
-const ProductCard = () => {
+const ProductCardTwo = () => {
   return (
-    <div className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
+     <div className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
         {/* image part */}
         <div className='relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm'>
-           <div className='md:w-[190px] md:h-[180px]  bg-green-100'></div>
+           <div className='md:w-[190px] md:h-[180px]  bg-blue-100'></div>
            {/* floating items */}
            <button className='absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer' >Add To Cart</button>
-           <button className='absolute md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[12px] text-white rounded '>-40%</button>
            <div className=' absolute top-4 right-4 text-black space-y-2'>
            <button className=' md:w-[34px] md:h-[34px]  bg-white rounded-full flex items-center justify-center cursor-pointer '><CiHeart /></button>
            <button className=' md:w-[34px] md:h-[34px]  bg-white rounded-full flex items-center justify-center cursor-pointer '><IoEyeOutline /></button>
@@ -31,4 +30,4 @@ const ProductCard = () => {
   )
 }
 
-export default ProductCard
+export default ProductCardTwo

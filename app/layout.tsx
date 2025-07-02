@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <ContextToggleProvider>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `} cz-shortcut-listen="true"
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}  cz-shortcut-listen="true"
       >
         <Navbar/>
         {children}

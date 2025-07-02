@@ -31,8 +31,8 @@ const HeroDelivery = () => {
           {allServices.map((item)=> (
             <div key={item.id} className='flex flex-col items-center gap-4'>
                 {/* icons */}
-                <div className='md:w-[80px] md:h-[80px] flex justify-center items-center bg-gray-500 rounded-full '>
-                   <div className='md:text-[35px] bg-black text-white p-2 rounded-full'>
+                <div className='md:w-[80px] md:h-[80px] flex justify-center items-center bg-gray-300 rounded-full '>
+                   <div className='md:text-[35px] bg-black text-white p-3 rounded-full'>
                       {item.icon}
                    </div>
                 </div>

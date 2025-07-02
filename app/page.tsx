@@ -8,6 +8,7 @@ import HeroSelling from "./_components/HeroSelling";
 import HeroCategoryBanner from "./_components/HeroCategoryBanner";
 import HeroAllProducts from "./_components/HeroAllProducts";
 import HeroDelivery from "./_components/HeroDelivery";
+import HeroNewArrival from "./_components/HeroNewArrival";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           <HeroSelling/>
           <HeroCategoryBanner/>
           <HeroAllProducts/>
+          <HeroNewArrival/>
           <HeroDelivery/>
       </div>
 
