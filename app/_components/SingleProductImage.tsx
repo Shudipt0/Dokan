@@ -58,9 +58,6 @@ const SingleProductImage = () => {
                 height={300}
                 className="object-contain w-full h-full"
               />
-
-
-
             </div>
           ))}
         </Carousel>
