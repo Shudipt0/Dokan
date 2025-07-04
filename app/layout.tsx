@@ -1,9 +1,10 @@
-
+'use client'
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import { ContextToggleProvider } from "@/context/NavbarToggleContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 const geistSans = Geist({
@@ -16,6 +17,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// create a client
+const queryClient = new QueryClient();
+
 
 export default function RootLayout({
   children,
@@ -24,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <QueryClientProvider client={queryClient}>
       <ContextToggleProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}  cz-shortcut-listen="true"
@@ -33,6 +38,7 @@ export default function RootLayout({
 
       </body>
       </ContextToggleProvider>
+      </QueryClientProvider>
     </html>
   );
 }

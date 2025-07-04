@@ -1,6 +1,6 @@
 import React from "react";
 
-const Rating = () => {
+const Rating = ({ rating }) => {
   return (
     <div className="rating rating-xs">
       <input
