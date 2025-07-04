@@ -9,11 +9,11 @@ type Products = {
 };
 
 const shopPage = () => {
-  const {data} = useQuery<Products[]>({
+  const {data,isPending,isError,error} = useQuery<Products[]>({
     queryKey: ['products'],
     queryFn: fetchAllProducts
   })
-  // console.log(data)
+  console.log(data)
   return (
     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
      

@@ -4,40 +4,45 @@ import { FaRegHeart } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { GrPowerCycle } from "react-icons/gr";
 
-
-const SingleProductDetails = () => {
+interface Item {
+  product: any;
+}
+ 
+const SingleProductDetails = ({product}: Item) => {
+  console.log(product)
   return (
     <div className="md:w-[500px] md:h-[600px] flex flex-col justify-between">
       <h1 className="text-3xl text-black/90 font-semibold ">
-        Havic HV G-92 Gamepad
+        {product?.title}
       </h1>
       {/* rating section */}
       <div className="flex items-center gap-5">
-        <Rating />
-        <p className="text-sm text-gray-400">(150 Reviews)</p>
+        <Rating rating={product?.rating} />
+        <p className="text-sm text-gray-400">({product?.reviews?.length})</p>
         <hr className="w-[2px] h-full bg-gray-400" />
-        <p className="text-sm text-green-500"> In Stock</p>
+        <p className="text-sm text-green-500"> {product?.stock > 0 ? "In Stock" : "Stock Out"}</p>
       </div>
       {/* price section */}
-      <h1 className="text-2xl text-black/90 font-normal">$192.00</h1>
+      <h1 className="text-2xl text-black/90 font-normal">${product?.price}</h1>
 
       {/* details */}
       <p className="text-sm text-black/80 font-semibold">
-        PlayStation 5 Controller Skin High quality vinyl with air channel
-        adhesive for easy bubble free install & mess free removal Pressure
-        sensitive.
+       {product?.description}
       </p>
       <p className="w-full h-[1px] bg-gray-400"/>
       {/* color section */}
-      <div className="flex items-center gap-4">
+     {product?.colors && (
+       <div className="flex items-center gap-4">
         <h3 className="text-[20px] text-black/90 ">Colours:</h3>
         <div className="flex gap-2">
           <button className="w-[20px] h-[20px] rounded-full bg-blue-200 "></button>
           <button className="w-[20px] h-[20px] rounded-full bg-[#DB4444] "></button>
         </div>
       </div>
+     )}
       {/* size section */}
-      <div className="flex items-center gap-4">
+     {product?.sizes && (
+       <div className="flex items-center gap-4">
         <h3 className="text-[20px] text-black/90 ">Size:</h3>
         <div className="flex gap-3">
           <button className="w-[32px] h-[32px] border rounded text-sm text-black/80 hover:text-white bg-white hover:bg-[#DB4444] ">XS</button>
@@ -47,6 +52,7 @@ const SingleProductDetails = () => {
           <button className="w-[32px] h-[32px] border rounded text-sm text-black/80 hover:text-white bg-white hover:bg-[#DB4444] ">XL</button>
         </div>
       </div>
+     )}
       {/* buttons section */}
       <div className="flex items-center gap-5">
         {/* increase decrease */}
@@ -75,8 +81,8 @@ const SingleProductDetails = () => {
         <div className="w-full h-[50%] pl-5 flex items-center gap-3 text-black/90">
             <GrPowerCycle size={30} />
              <div className="space-y-2">
-              <h4 className="text-[16px] font-semibold ">Return Delivery</h4>
-              <p className="text-sm font-normal">Free 30 Days Delivery Returns. Details</p>
+              <h4 className="text-[16px] font-semibold ">{product?.returnPolicy}</h4>
+              <p className="text-sm font-normal">{product?.shippingInformation}</p>
              </div>
         </div>
 

@@ -2,6 +2,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import Rating from './Rating'
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductCardProps {
   item: any; // Replace 'any' with a specific type for your product if available
@@ -10,16 +11,16 @@ interface ProductCardProps {
 const ProductCard = ({item}: ProductCardProps) => {
   console.log(item)
    // get original price
-  const originalPrice = (item.price + item.discountPercentage).toString().split("").slice(0,6).join("") ;
+  const originalPrice = item?.price + item?.discountPercentage ;
   // get discount rate
-  const discountRate = Math.ceil((item.discountPercentage / originalPrice) * 100);
+  const discountRate = Math.ceil((item?.discountPercentage / originalPrice) * 100);
  
   return (
-    <div className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
+    <Link href={`/shop/${item?.id}`} className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
         {/* image part */}
         <div className='relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm'>
            <div className='md:w-[190px] md:h-[180px]'>
-            <Image src={item.images[0]} alt={`Product image ${item.images[0].id}`} width={190} height={180} />
+            <Image src={item?.images[0]} alt={`Product image ${item?.images[0]?.id}`} width={190} height={180} />
            </div>
            {/* floating items */}
            <button className='absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer' >Add To Cart</button>
@@ -31,15 +32,15 @@ const ProductCard = ({item}: ProductCardProps) => {
         </div>
         {/* text part */}
         <div className="space-y-2">
-           <h2 className="text-[16px] text-black font-semibold">{item.title}</h2>
-           <p className="text-[14px] text-red-500 font-semibold ">${item.price} <span className="text-gray-500 line-through">${originalPrice}</span></p>
+           <h2 className="text-[16px] text-black font-semibold">{item?.title}</h2>
+           <p className="text-[14px] text-red-500 font-semibold ">${item?.price} <span className="text-gray-500 line-through">${originalPrice}</span></p>
            <div>
-            <Rating rating={item.rating} />
-            <span className="text-black/60"> ({item.reviews.length})</span>
+            <Rating rating={item?.rating} />
+            <span className="text-black/60"> ({item?.reviews?.length})</span>
            </div>
         </div>
       
-    </div>
+    </Link>
   )
 }
 
