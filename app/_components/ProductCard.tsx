@@ -9,7 +9,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({item}: ProductCardProps) => {
-  console.log(item)
+  // console.log(item)
    // get original price
   const originalPrice = item?.price + item?.discountPercentage ;
   // get discount rate

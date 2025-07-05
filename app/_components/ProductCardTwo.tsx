@@ -2,15 +2,32 @@ import React from 'react'
 import Rating from './Rating'
 import { CiHeart } from 'react-icons/ci'
 import { IoEyeOutline } from 'react-icons/io5'
+import Image from 'next/image';
+import Link from 'next/link';
 
-const ProductCardTwo = () => {
+
+interface ProductCardProps {
+  item: any; // Replace 'any' with a specific type for your product if available
+//   categoryName?: string; // Add this line to fix the error
+}
+
+const ProductCardTwo = ({item}: ProductCardProps) => {
+  // console.log(item)
+
+   // get original price
+  const originalPrice = item?.price + item?.discountPercentage ;
+  // get discount rate
+  const discountRate = Math.ceil((item?.discountPercentage / originalPrice) * 100);
   return (
-     <div className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
+     <Link href={`/category/${item.category}/${item?.id}`} className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
         {/* image part */}
         <div className='relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm'>
-           <div className='md:w-[190px] md:h-[180px]  bg-blue-100'></div>
+           <div className='md:w-[190px] md:h-[180px]'>
+            <Image src={item?.images[0]} alt={`Product image ${item?.images[0]?.id}`} width={190} height={180} />
+           </div>
            {/* floating items */}
            <button className='absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer' >Add To Cart</button>
+           <button className='absolute md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[12px] text-white rounded '>-{discountRate}%</button>
            <div className=' absolute top-4 right-4 text-black space-y-2'>
            <button className=' md:w-[34px] md:h-[34px]  bg-white rounded-full flex items-center justify-center cursor-pointer '><CiHeart /></button>
            <button className=' md:w-[34px] md:h-[34px]  bg-white rounded-full flex items-center justify-center cursor-pointer '><IoEyeOutline /></button>
@@ -18,15 +35,15 @@ const ProductCardTwo = () => {
         </div>
         {/* text part */}
         <div className="space-y-2">
-           <h2 className="text-[16px] text-black font-semibold">HAVIT HV-G92 Gamepad</h2>
-           <p className="text-[14px] text-red-500 font-semibold ">$120 <span className="text-gray-500 line-through">$160</span></p>
+           <h2 className="text-[16px] text-black font-semibold">{item?.title}</h2>
+           <p className="text-[14px] text-red-500 font-semibold ">${item?.price} <span className="text-gray-500 line-through">${originalPrice}</span></p>
            <div>
-            <Rating/>
-            <span className="text-black/60"> (88)</span>
+            <Rating rating={item?.rating} />
+            <span className="text-black/60"> ({item?.reviews?.length})</span>
            </div>
         </div>
       
-    </div>
+    </Link>
   )
 }
 

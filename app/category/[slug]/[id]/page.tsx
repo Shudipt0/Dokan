@@ -1,19 +1,25 @@
 'use client'
-import RelatedItems from '@/app/_components/RelatedItems'
-import SingleProduct from '@/app/_components/SingleProduct'
+import RelatedItems from '@/app/_components/RelatedItems';
+import SingleProduct from '@/app/_components/SingleProduct';
 import { fetchProduct } from '@/app/api/Api';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'next/navigation';
-import React from 'react'
+import React, { use } from 'react'
 
-const page = () => {
-    const params = useParams();
-  const id = params.id
-    const { data, isPending, isError, error } = useQuery({
+interface PageProps {
+  params: {
+    id: string;
+    // [key: string]: string;
+  };
+}
+
+const page = ({ params }: PageProps) => {
+    const {id} = params;
+       const { data, isPending, isError, error } = useQuery({
       queryKey: ['product', id],
       queryFn: () => fetchProduct(id)
     })
     // console.log(data)
+
   return (
     <div className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
       <SingleProduct data={data}/>
