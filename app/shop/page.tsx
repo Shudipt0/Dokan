@@ -2,28 +2,45 @@
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../_components/ProductCard";
 import { fetchAllProducts } from "../api/Api";
+import { PaginationPage } from "../_components/PaginationPage";
+import { useState } from "react";
 
 type Products = {
   id: string | number;
   // add other product fields as needed
 };
 
+type ProductsResponse = {
+  products: Products[];
+  totalPages: number;
+};
+
 const shopPage = () => {
-  const { data, isPending, isError, error } = useQuery<Products[]>({
-    queryKey: ["products"],
-    queryFn: fetchAllProducts,
+  const [pageNumber, setPageNumber] = useState(1);
+  const { data, isPending, isError, error } = useQuery<ProductsResponse, Error>({
+    queryKey: ["products", pageNumber],
+    queryFn: () => fetchAllProducts(pageNumber)
   });
   console.log(data);
   return (
     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
       {/* search inputs */}
-      <div className="">inputs</div>
+      <div className="md:w-[350px]">inputs</div>
 
       {/* products section */}
-      <div className="md:w-[860px] grid grid-cols-3 gap-6">
-        {data?.map((item: Products) => (
+      <div className="w-full flex flex-col justify-center gap-20">
+      <div className="md:w-full grid grid-cols-4 gap-6 space-y-6">
+        {data?.products?.map((item: Products) => (
           <ProductCard key={item.id} item={item} />
         ))}
+      </div>
+
+      {/* pagination */}
+      <PaginationPage 
+      currentPage={pageNumber}
+      totalPage={data?.totalPages || 1}
+      setPageNumber={setPageNumber}
+      />
       </div>
     </section>
   );

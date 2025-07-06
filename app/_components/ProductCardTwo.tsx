@@ -15,7 +15,7 @@ const ProductCardTwo = ({item}: ProductCardProps) => {
   // console.log(item)
 
    // get original price
-  const originalPrice = item?.price + item?.discountPercentage ;
+  const originalPrice = Math.ceil(item?.price + item?.discountPercentage) ;
   // get discount rate
   const discountRate = Math.ceil((item?.discountPercentage / originalPrice) * 100);
   return (

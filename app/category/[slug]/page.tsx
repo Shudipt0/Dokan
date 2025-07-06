@@ -21,7 +21,7 @@ const singleCategory = ({ params }: SingleCategoryProps) => {
         queryKey: ["products", slug],
         queryFn:() => fetchCategoryItem(slug)
     })
-console.log(data)
+// console.log(data)
   return (
     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
       <div className="">inputs</div>

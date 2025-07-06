@@ -12,14 +12,19 @@ import { TfiHeadphone } from "react-icons/tfi";
 import { SiYoutubegaming } from "react-icons/si";
 
 const categoryBoxItems = [
-  { id: 1, icon: <HiOutlineDevicePhoneMobile />, name: "phones" },
-  { id: 2, icon: <FaComputer />, name: "computers" },
-  { id: 3, icon: <BsSmartwatch />, name: "SmartWatch" },
-  { id: 4, icon: <IoCameraOutline />, name: "Camera" },
-  { id: 5, icon: <TfiHeadphone />, name: "HeadPhone" },
-  { id: 6, icon: <SiYoutubegaming />, name: "Gaming" },
-  { id: 7, icon: <HiOutlineDevicePhoneMobile />, name: "phones" },
-  { id: 8, icon: <FaComputer />, name: "phones" },
+  {
+    id: 1,
+    icon: <HiOutlineDevicePhoneMobile />,
+    name: "phones",
+    link: "/category/smartphones",
+  },
+  { id: 2, icon: <FaComputer />, name: "computers", link: "#" },
+  { id: 3, icon: <BsSmartwatch />, name: "SmartWatch", link: "#" },
+  { id: 4, icon: <IoCameraOutline />, name: "Camera", link: "#" },
+  { id: 5, icon: <TfiHeadphone />, name: "HeadPhone", link: "#" },
+  { id: 6, icon: <SiYoutubegaming />, name: "Gaming", link: "#" },
+  { id: 7, icon: <HiOutlineDevicePhoneMobile />, name: "phones", link: "#" },
+  { id: 8, icon: <FaComputer />, name: "phones", link: "#" },
 ];
 
 const HeroCategoryBoxs = () => {
