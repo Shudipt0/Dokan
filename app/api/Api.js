@@ -6,7 +6,7 @@ const api = axios.create({
     baseURL: 'https://dummyjson.com',
 });
 
-// get all product
+// get all product for pagination
 
 export const fetchAllProducts = async (pageNumber) => {
 
@@ -17,6 +17,14 @@ export const fetchAllProducts = async (pageNumber) => {
     
     
     return {products, totalPages: Math.ceil(total/limit)};
+};
+
+// get all product for Search
+
+export const fetchSearchProducts = async (query) => {
+
+ const res = await api.get(`/products/search?q=${query}`);
+    return res?.data?.products;
 };
 
 // get single product
