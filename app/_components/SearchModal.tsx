@@ -63,7 +63,9 @@ const SearchModal = () => {
               className="w-full md:w-[450px] border p-1 text-[14px] text-black border-none outline-none cursor-pointer"
             />
              <span>
-            <FiSearch size={24} className="text-black/90" />
+            <Link href='#' >
+              <FiSearch size={24} className="text-black/90" />
+            </Link>
           </span>
           </div>
           {/* results */}

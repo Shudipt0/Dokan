@@ -7,7 +7,7 @@ const SearchMain = () => {
   const { setSearchItem } = useToggleMenu();
   const handleSearchModal = () => {
     setSearchItem(true);
-    console.log("search on");
+    // console.log("search on");
   };
 
   return (

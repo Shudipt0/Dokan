@@ -7,7 +7,12 @@ import { GoArrowRight } from "react-icons/go";
 import HeroHeadLine from "./HeroHeadLine";
 
 
-const FlashsaleCarousel = () => {
+
+interface FlashsaleCarouselProps {
+  products: any[]; // Replace 'any' with your actual product type if available
+}
+
+const FlashsaleCarousel = ({ products }: FlashsaleCarouselProps) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -22,11 +27,13 @@ const FlashsaleCarousel = () => {
       items: 2,
     },
   };
+  // console.log(products)
   return (
     <div className=" relative w-full md:h-[495px] flex flex-col justify-between">
      <HeroHeadLine thumb={`Today's`} title={'Flash Sales'} />
      {/* carousel section */}
       <div className="">
+        {Array.isArray(products) && products.length > 0 && (
         <Carousel
           responsive={responsive}
           removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -35,16 +42,14 @@ const FlashsaleCarousel = () => {
           customButtonGroup={<ButtonGroup/>}
           renderButtonGroupOutside={true}
         >
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+        
+            {products?.map((item: any) => (
+          <ProductCard key={item.id} item={item} />
+        ))}
+       
+          
         </Carousel>
+        )}
       </div>
     </div>
   );

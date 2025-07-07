@@ -4,6 +4,7 @@ import ProductCard from "../_components/ProductCard";
 import { fetchAllProducts } from "../api/Api";
 import { PaginationPage } from "../_components/PaginationPage";
 import { useState } from "react";
+import FilterFields from "../_components/FilterFields";
 
 type Products = {
   id: string | number;
@@ -16,16 +17,21 @@ type ProductsResponse = {
 };
 
 const shopPage = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const { data, isPending, isError, error } = useQuery<ProductsResponse, Error>({
-    queryKey: ["products", pageNumber],
-    queryFn: () => fetchAllProducts(pageNumber)
-  });
-  console.log(data);
+const [pageNumber, setPageNumber] = useState(1);
+const limit = 12;
+
+const { data, isPending, isError, error } = useQuery<ProductsResponse, Error>({
+  queryKey: ["products", pageNumber,limit],
+  queryFn: () => fetchAllProducts(pageNumber,limit)
+});
+// console.log(data);
+
   return (
-    <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
+    <section className="container mx-auto px-2 md:px-14 space-x-3 bg-white md:flex justify-between md:py-20">
       {/* search inputs */}
-      <div className="md:w-[350px]">inputs</div>
+      <div className="md:w-[350px] bg-red-100">
+        {/* <FilterFields filters={filters} setFilters={setFilters}/> */}
+      </div>
 
       {/* products section */}
       <div className="w-full flex flex-col justify-center gap-20">

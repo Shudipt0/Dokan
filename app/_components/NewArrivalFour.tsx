@@ -5,7 +5,7 @@ import newItemFour from '../../public/newItemFour.png'
 
 const NewArrivalFour = () => {
   return (
-    <Link href='#' className="md:w-[270px] md:h-[284px] relative bg-black/90 flex justify-center items-center">
+    <Link href='/fragrances' className="md:w-[270px] md:h-[284px] relative bg-black/90 flex justify-center items-center">
       <Image
         src={newItemFour}
         alt="category banner"

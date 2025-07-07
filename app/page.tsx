@@ -1,6 +1,4 @@
 'use client'
-import Image from "next/image";
-import SearchModal from "./_components/SearchModal";
 import HeroBanner from "./_components/HeroBanner";
 import HeroFlashsale from "./_components/HeroFlashsale";
 import HeroCategoryBoxs from "./_components/HeroCategoryBoxs";
@@ -15,16 +13,15 @@ export default function Home() {
     <section>
       <div className="container mx-auto px-2 md:px-14 bg-white">
           <HeroBanner/>
-          {/* <HeroFlashsale/> */}
+          <HeroFlashsale/>
           <HeroCategoryBoxs/>
-          {/* <HeroSelling/> */}
+          <HeroSelling/>
           <HeroCategoryBanner/>
-          {/* <HeroAllProducts/> */}
+          <HeroAllProducts/>
           <HeroNewArrival/>
           <HeroDelivery/>
       </div>
 
-     <SearchModal/>
     </section>
   );
 }

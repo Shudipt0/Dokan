@@ -7,9 +7,10 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { FaComputer } from "react-icons/fa6";
 import { BsSmartwatch } from "react-icons/bs";
-import { IoCameraOutline } from "react-icons/io5";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { TfiHeadphone } from "react-icons/tfi";
-import { SiYoutubegaming } from "react-icons/si";
+import { FaMotorcycle } from "react-icons/fa6";
+
 
 const categoryBoxItems = [
   {
@@ -18,11 +19,11 @@ const categoryBoxItems = [
     name: "phones",
     link: "/category/smartphones",
   },
-  { id: 2, icon: <FaComputer />, name: "computers", link: "#" },
-  { id: 3, icon: <BsSmartwatch />, name: "SmartWatch", link: "#" },
-  { id: 4, icon: <IoCameraOutline />, name: "Camera", link: "#" },
-  { id: 5, icon: <TfiHeadphone />, name: "HeadPhone", link: "#" },
-  { id: 6, icon: <SiYoutubegaming />, name: "Gaming", link: "#" },
+  { id: 2, icon: <FaComputer />, name: "computers", link: "/category/laptops" },
+  { id: 3, icon: <BsSmartwatch />, name: "SmartWatch",link: "/category/mens-watches" },
+  { id: 4, icon: <MdOutlineLocalGroceryStore />, name: "Groceries", link: "/category/groceries" },
+  { id: 5, icon: <TfiHeadphone />, name: "Mobile Accessories", link: "/category/mobile-accessories" },
+  { id: 6, icon: <FaMotorcycle />, name: "Motorcycle", link: "/category/motorcycle" },
   { id: 7, icon: <HiOutlineDevicePhoneMobile />, name: "phones", link: "#" },
   { id: 8, icon: <FaComputer />, name: "phones", link: "#" },
 ];
