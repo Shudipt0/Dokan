@@ -1,7 +1,10 @@
+'use client'
 import { FiSearch } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useToggleMenu } from "@/context/NavbarToggleContext";
+import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const SearchMain = () => {
   const { setSearchItem } = useToggleMenu();
@@ -9,7 +12,9 @@ const SearchMain = () => {
     setSearchItem(true);
     // console.log("search on");
   };
-
+ 
+  const {items} = useSelector((state: RootState) => state.cart)
+    
   return (
     <div className="flex items-center gap-3  md:gap-6">
       <button
@@ -27,9 +32,10 @@ const SearchMain = () => {
       <span>
         <FaRegHeart size={22} className="text-black/90" />
       </span>
-      <span>
+      <Link href='/cart'>
         <IoCartOutline size={26} className="text-black/90" />
-      </span>
+      </Link>
+      {items.length}
     </div>
   );
 };

@@ -1,9 +1,14 @@
-import React from "react";
+'use client'
 import CartItem from "../_components/CartItem";
 import Link from "next/link";
 import TotalCart from "../_components/TotalCart";
+import { useSelector } from "react-redux";
+
+import RootState from "../redux/store"; // adjust the import path as needed
 
 const cartPage = () => {
+  const {items, total} = useSelector((state: RootState) => state.cart)
+  console.log(items, total)
   return (
     <div className="container mx-auto px-2 md:px-14 bg-white md:py-20 space-y-24">
       {/* cart */}
@@ -19,9 +24,9 @@ const cartPage = () => {
           <p className="text-sm font-semibold text-black/80">Subtotal</p>
         </div>
         {/* cart item */}
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        
+        <CartItem items={items}  />
+        
         {/* buttons */}
         <div className="w-full flex justify-between">
           <Link
@@ -37,7 +42,7 @@ const cartPage = () => {
       </div>
 
       {/* total cart */}
-      <TotalCart />
+      <TotalCart total={total} />
     </div>
   );
 };

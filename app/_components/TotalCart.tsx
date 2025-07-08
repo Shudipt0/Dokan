@@ -1,6 +1,9 @@
 import React from "react";
 
-const TotalCart = () => {
+interface Props{
+  total: number
+}
+const TotalCart = ({total} : Props) => {
   return (
     <div className="md:w-full flex justify-between ">
       {/* coupon button */}
@@ -20,7 +23,7 @@ const TotalCart = () => {
         {/* subtotal */}
         <div className="w-full flex items-center justify-between">
           <p className="text-sm text-black/80 font-semibold">Subtotal:</p>
-          <p className="text-sm text-black/80 font-semibold">$1750</p>
+          <p className="text-sm text-black/80 font-semibold">${total}</p>
         </div>
         <hr className="w-full text-[1px] text-black/60" />
         {/* shipping */}
@@ -32,7 +35,7 @@ const TotalCart = () => {
         {/* total */}
         <div className="w-full flex items-center justify-between">
           <p className="text-sm text-black/80 font-semibold">Total:</p>
-          <p className="text-sm text-black/80 font-semibold">$1750</p>
+          <p className="text-sm text-black/80 font-semibold">${total}</p>
         </div>
         {/* proccess button */}
         <div className="w-full flex items-center justify-center">
