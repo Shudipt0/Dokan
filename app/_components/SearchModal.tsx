@@ -1,4 +1,4 @@
-// 'use client'
+"use client";
 import { useToggleMenu } from "@/context/NavbarToggleContext";
 import { FiSearch } from "react-icons/fi";
 import { FaTimes } from "react-icons/fa";

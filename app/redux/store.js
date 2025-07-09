@@ -6,6 +6,7 @@ import { persistReducer, persistStore } from "redux-persist";
 // configure persist
 const persistConfig = {
   key: "root", // key for storage
+  version: 1,
   storage, // local storage
 };
 
@@ -29,3 +30,10 @@ const store = configureStore({
 // persistor
 export const persistor = persistStore(store);
 export default store;
+
+// const store = configureStore({
+//   reducer: {
+//     cart: cartSlice
+//   }
+// })
+

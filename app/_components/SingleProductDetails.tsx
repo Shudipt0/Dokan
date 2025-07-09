@@ -5,19 +5,28 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { GrPowerCycle } from "react-icons/gr";
 import {useDispatch} from 'react-redux';
 import { addToCart } from '../redux/cartslice/cartSlice';
+import { useState } from "react";
 
 
 interface Item {
   product: any;
-}
+};
 
 const SingleProductDetails = ({ product }: Item) => {
+  const [quantity, setQuantity] = useState(1);
   // console.log(product);
 
   const dispatch = useDispatch();
 
+  const handleQuantityIncrease = () => {
+    setQuantity((prev) => prev + 1)
+  };
+
+  const handleQuantityDecrease = () => {
+    setQuantity((prev) =>  Math.max(prev - 1, 1) )
+  };
   const handleAddToCart = () => {
-    dispatch(addToCart(product))
+    dispatch(addToCart({...product, quantity}))
   }
 
   return (
@@ -80,11 +89,11 @@ const SingleProductDetails = ({ product }: Item) => {
       <div className="flex items-center gap-5">
         {/* increase decrease */}
         <div className="w-[160px] h-[44px] text-2xl flex justify-between border border-gray-300 rounded ">
-          <button className="w-[44px] h-[44px] flex items-center justify-center rounded-l font-semibold text-black/80 hover:text-white hover:bg-[#DB4444]">
+          <button onClick={handleQuantityDecrease} className="w-[44px] h-[44px] flex items-center justify-center rounded-l font-semibold text-black/80 hover:text-white hover:bg-[#DB4444]">
             -
           </button>
-          <p className=" text-black/90 font-semibold py-1 ">2</p>
-          <button className=" w-[44px] h-[44px] flex items-center justify-center rounded-r font-semibold text-black/80 hover:text-white hover:bg-[#DB4444]">
+          <p className=" text-black/90 font-semibold py-1 ">{quantity}</p>
+          <button onClick={handleQuantityIncrease} className=" w-[44px] h-[44px] flex items-center justify-center rounded-r font-semibold text-black/80 hover:text-white hover:bg-[#DB4444]">
             +
           </button>
         </div>

@@ -23,7 +23,7 @@ const CartItem = ({items } : Props) => {
     {items?.map((item : any)=> (
       <div key={item.id} className="w-full md:h-[90px] flex items-center justify-between shadow rounded px-12 bg-white group">
       <div className="relative  md:w-1/4 flex items-center gap-4 ">
-        <Image src={item.images[0]} alt="cart image" width={20} height={20} className="w-20 h-20" />
+        <Image src={item?.images[0]} alt="cart image" width={20} height={20} className="w-20 h-20" />
         <p className="text-sm font-semibold text-black/80">{item.title}</p>
         <button onClick={() => handleRemove(item)} className="absolute opacity-0 group-hover:opacity-100 duration-200 cursor-pointer -top-1 -left-1 text-[16px] text-[#DB2222]"><FaTimesCircle /></button>
       </div>

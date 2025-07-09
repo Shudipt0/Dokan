@@ -9,6 +9,7 @@ import RootState from "../redux/store"; // adjust the import path as needed
 const cartPage = () => {
   const {items, total} = useSelector((state: RootState) => state.cart)
   console.log(items, total)
+  
   return (
     <div className="container mx-auto px-2 md:px-14 bg-white md:py-20 space-y-24">
       {/* cart */}
