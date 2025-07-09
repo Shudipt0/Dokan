@@ -13,7 +13,8 @@ const SearchMain = () => {
     // console.log("search on");
   };
  
-  const {items} = useSelector((state: RootState) => state.cart)
+  const {items} = useSelector((state: RootState) => state.cart);
+  const wish = useSelector((state: RootState) => state.wishlist);
     
   return (
     <div className="flex items-center gap-3  md:gap-6">
@@ -29,13 +30,25 @@ const SearchMain = () => {
           <FiSearch size={24} className="text-black/90" />
         </span>
       </button>
-      <span>
+      <Link href='#' className="relative">
         <FaRegHeart size={22} className="text-black/90" />
-      </span>
-      <Link href='/cart'>
-        <IoCartOutline size={26} className="text-black/90" />
+        {wish.items.length > 0 && (
+        <div className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-2 text-white text-sm font-semibold rounded-full bg-green-500 ">
+        {wish.items.length}
+        </div>
+      )}
       </Link>
-      {items.length}
+      <Link href='/cart' className="relative" >
+        <IoCartOutline size={26} className="text-black/90" />
+
+      {items.length > 0 && (
+        <div className="absolute w-5 h-5 flex items-center justify-center -top-2 -right-2 text-white text-sm font-semibold rounded-full bg-red-500 ">
+        {items.length}
+        </div>
+      )}
+
+      </Link>
+      
     </div>
   );
 };

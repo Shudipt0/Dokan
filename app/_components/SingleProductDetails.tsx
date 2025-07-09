@@ -6,6 +6,7 @@ import { GrPowerCycle } from "react-icons/gr";
 import {useDispatch} from 'react-redux';
 import { addToCart } from '../redux/cartslice/cartSlice';
 import { useState } from "react";
+import { addToList } from "../redux/wishlistSlice/wishlistSlice";
 
 
 interface Item {
@@ -27,6 +28,11 @@ const SingleProductDetails = ({ product }: Item) => {
   };
   const handleAddToCart = () => {
     dispatch(addToCart({...product, quantity}))
+  };
+
+  // add wish list
+  const handleAddWishlist = () => {
+    dispatch(addToList(product))
   }
 
   return (
@@ -102,7 +108,7 @@ const SingleProductDetails = ({ product }: Item) => {
           Buy Now
         </button>
         {/* wish button */}
-        <button className="w-[45px] h-[45px] flex items-center justify-center text-[24px] border border-gray-300 rounded text-black/90 hover:text-white hover:bg-[#DB4444] cursor-pointer ">
+        <button onClick={handleAddWishlist} className="w-[45px] h-[45px] flex items-center justify-center text-[24px] border border-gray-300 rounded text-black/90 hover:text-white hover:bg-[#DB4444] cursor-pointer ">
           <FaRegHeart />
         </button>
       </div>
