@@ -1,7 +1,11 @@
+'use client'
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const checkoutPage = () => {
+  const {items, total} = useSelector((state: RootState) => state.cart);
+  // console.log(items)
   return (
     <section className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
       <h1 className="text-3xl font-semibold text-black/90 mb-10 ">
@@ -66,20 +70,23 @@ const checkoutPage = () => {
         </div>
 
         {/* ordering item */}
-        <div className="md:w-[550px] flex flex-col gap-8 ">
+        <div className="md:w-[550px] flex flex-col gap-6 ">
           {/* cart item */}
-          <div className="flex items-center justify-between">
+          {items?.map((item: any) => (
+           <div key={item.id} className=" flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-amber-500 "></div>
-              <h3 className="text-sm text-black/80">Lcd Monitor</h3>
+              <Image src={item?.images?.[0]} alt={`image od ${item.title}`} width={70} height={70} />
+              <h3 className="text-sm text-black/80">{item?.title}</h3>
             </div>
-            <h3 className="text-sm text-black/80">$390</h3>
+            <h3 className="text-sm text-black/80">${item?.price * item?.quantity}</h3>
           </div>
+          ))}
+          
 
           {/* subtotal */}
           <div className="w-full flex items-center justify-between">
             <p className="text-sm text-black/80 font-semibold">Subtotal:</p>
-            <p className="text-sm text-black/80 font-semibold">$390</p>
+            <p className="text-sm text-black/80 font-semibold">${total}</p>
           </div>
           <hr className="w-full text-[1px] text-black/60" />
           {/* shipping */}
@@ -91,7 +98,7 @@ const checkoutPage = () => {
           {/* total */}
           <div className="w-full flex items-center justify-between">
             <p className="text-sm text-black/80 font-semibold">Total:</p>
-            <p className="text-sm text-black/80 font-semibold">$390</p>
+            <p className="text-sm text-black/80 font-semibold">${total}</p>
           </div>
           {/* delevery */}
           <div className="flex items-center gap-3">
