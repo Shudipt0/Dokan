@@ -1,27 +1,25 @@
-'use client'
+"use client";
 
 // import ProductCard from "@/app/_components/ProductCard";
 import ProductCardTwo from "@/app/_components/ProductCardTwo";
 import { fetchCategoryItem } from "@/app/api/Api";
 import { useQuery } from "@tanstack/react-query";
-import { use } from "react"
 
-interface SingleCategoryProps {
-  params: { slug: string }
-}
 interface Products {
   id: string | number;
-  
-  // add other product fields as needed
-};
 
-const singleCategory = ({ params }: SingleCategoryProps) => {
-    const {slug} = use(params);
-    const {data} = useQuery({
-        queryKey: ["products", slug],
-        queryFn:() => fetchCategoryItem(slug)
-    })
-// console.log(data)
+  // add other product fields as needed
+}
+
+const CategoryProducts = ({ slug }: { slug: string }) => {
+    // Fetch products based on the category slug
+    // console.log(slug);
+    
+  const { data } = useQuery({
+    queryKey: ["products", slug],
+    queryFn: () => fetchCategoryItem(slug),
+  });
+  // console.log(data)
   return (
     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
       <div className="">inputs</div>
@@ -33,7 +31,7 @@ const singleCategory = ({ params }: SingleCategoryProps) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default singleCategory
+export default CategoryProducts;

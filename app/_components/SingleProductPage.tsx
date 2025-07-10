@@ -3,12 +3,10 @@ import RelatedItems from '@/app/_components/RelatedItems'
 import SingleProduct from '@/app/_components/SingleProduct'
 import { fetchProduct } from '@/app/api/Api';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'next/navigation';
 import React from 'react'
 
 const SingleProductPage = ({ id }: { id: string }) => {
-//     const params = useParams();
-//   const id = params.id
+
     const { data, isPending, isError, error } = useQuery({
       queryKey: ['product', id],
       queryFn: () => fetchProduct(id)
