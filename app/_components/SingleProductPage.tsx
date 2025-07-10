@@ -6,9 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 import React from 'react'
 
-const page = () => {
-    const params = useParams();
-  const id = params.id
+const SingleProductPage = ({ id }: { id: string }) => {
+//     const params = useParams();
+//   const id = params.id
     const { data, isPending, isError, error } = useQuery({
       queryKey: ['product', id],
       queryFn: () => fetchProduct(id)
@@ -23,4 +23,4 @@ const page = () => {
   )
 }
 
-export default page
+export default SingleProductPage;
