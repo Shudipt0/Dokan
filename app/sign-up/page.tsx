@@ -3,6 +3,7 @@
 import { useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { CustomGoogleOneTap } from "../_components/CustomGoogleOneTap";
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -28,7 +29,7 @@ const SignUp = () => {
     });
   };
 
-console.log(signUpFields)
+  console.log(signUpFields);
   const handleSignUpSubmit = async (e: any) => {
     e.preventDefault();
     try {
@@ -40,26 +41,28 @@ console.log(signUpFields)
       });
 
       setVerify(true);
-    } catch (error) { console.log(error)}
+    } catch (error) {
+      // console.log(JSON.stringify(error));
+    }
   };
 
-// verification
-    const handleVerificationSubmit = async (e: any) => {
+  // verification
+  const handleVerificationSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      
-        const signupAttempt = await signUp?.attemptEmailAddressVerification({
-            code,
-        });
+      const signupAttempt = await signUp?.attemptEmailAddressVerification({
+        code,
+      });
 
-        if(signupAttempt?.status === "complete"){
-            await setActive({session: signupAttempt.createdSessionId});
-            router.push('/');
-        }else{
-          console.log(signupAttempt)
-        }
-
-    } catch (error) { console.log(error)}
+      if (signupAttempt?.status === "complete") {
+        await setActive({ session: signupAttempt.createdSessionId });
+        router.push("/");
+      } else {
+        console.log(signupAttempt);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (!isLoaded) return;
@@ -76,7 +79,7 @@ console.log(signUpFields)
             <input
               type="text"
               name="code"
-              placeholder="code"
+              value={code}
               onChange={(e) => setCode(e.target.value)}
             />
           </div>
@@ -115,11 +118,15 @@ console.log(signUpFields)
               onChange={handleSignupFieldChange}
             />
           </div>
-        {/* CAPTCHA Widget */}
-        <div id="clerk-captcha"></div>
+          {/* CAPTCHA Widget */}
+          <div id="clerk-captcha"></div>
           <button type="submit">submit</button>
         </form>
       )}
+
+        <CustomGoogleOneTap>
+      <h1>Google One Tap Example</h1>
+    </CustomGoogleOneTap>
     </div>
   );
 };
