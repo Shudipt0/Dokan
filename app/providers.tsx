@@ -4,6 +4,9 @@ import store, {persistor  } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { ContextToggleProvider } from "@/context/NavbarToggleContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  ClerkProvider
+} from '@clerk/nextjs'
 
 // create a client
 const queryClient = new QueryClient();
@@ -11,6 +14,8 @@ const queryClient = new QueryClient();
 
 const Providers = ({children}: { children: React.ReactNode }) => {
   return (
+
+     <ClerkProvider signInUrl="/singin" signUpUrl="/signup" >
       <QueryClientProvider client={queryClient}>
       <ContextToggleProvider>
         <Provider store={store}>
@@ -20,6 +25,7 @@ const Providers = ({children}: { children: React.ReactNode }) => {
         </Provider>
       </ContextToggleProvider>
     </QueryClientProvider>
+    </ClerkProvider>
   )
 }
 

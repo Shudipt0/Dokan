@@ -1,6 +1,12 @@
 import Link from "next/link";
 import SearchMain from "./SearchMain";
-
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const DesktopNavbar = ({
   NavItem,
@@ -23,8 +29,24 @@ const DesktopNavbar = ({
           </li>
         ))}
       </ul>
-      {/* search input and cart */}
-      <SearchMain/>
+     
+
+      {/* authentication */}
+      <div className="flex items-center gap-4">
+         {/* search input and cart */}
+      <SearchMain />
+        <SignedOut>
+           <button className="px-4 text-[14px] font-bold text-white bg-blue-500 rounded-md transition-colors hover:bg-blue-600">
+                <Link href="/login">Log In</Link>
+              </button>
+              <button className="px-4 text-[14px] font-bold text-white bg-gray-500 rounded-md transition-colors hover:bg-gray-600">
+                <Link href="/signup">Sign Up</Link>
+              </button>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
     </div>
   );
 };
