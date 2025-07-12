@@ -15,7 +15,7 @@ const queryClient = new QueryClient();
 const Providers = ({children}: { children: React.ReactNode }) => {
   return (
 
-     <ClerkProvider signInUrl="/singin" signUpUrl="/signup" >
+     <ClerkProvider signInUrl="/login" signUpUrl="/signup" >
       <QueryClientProvider client={queryClient}>
       <ContextToggleProvider>
         <Provider store={store}>

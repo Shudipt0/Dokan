@@ -6,6 +6,7 @@ import Navbar from "./_components/Navbar";
 import SearchModal from "./_components/SearchModal";
 import Providers from "./providers";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
   
             <html lang="en" suppressHydrationWarning>
+             
               <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
                 cz-shortcut-listen="true"

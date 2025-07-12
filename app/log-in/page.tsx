@@ -3,10 +3,11 @@
 import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {isClerkAPIResponseError} from "@clerk/nextjs/errors"
 
 const LogIn = () => {
   const { isLoaded, signIn, setActive } = useSignIn();
-
+  const [errorMessage, setErrorMessage] = useState(null)
   
   const router = useRouter();
 
@@ -37,12 +38,14 @@ const LogIn = () => {
      if(signInAttempt?.status === "complete"){
       await setActive({session: signInAttempt.createdSessionId});
       router.push('/')
-     }else {
-      console.error();
      }
 
     } catch (error) {
-      console.log(error);
+
+      if(isClerkAPIResponseError(error)){
+        setErrorMessage(error.errors);
+      }
+      // console.log(error);
     }
   };
 
@@ -79,6 +82,9 @@ const LogIn = () => {
           <div id="clerk-captcha"></div>
           <button type="submit">submit</button>
         </form>
+        {errorMessage && errorMessage?.map((error, index) => (
+          <p key={index} className="text-red-500">{error.longMessage}</p>
+        ))}
       
     </div>
   );

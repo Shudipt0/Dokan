@@ -4,8 +4,10 @@ import { useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { CustomGoogleOneTap } from "../_components/CustomGoogleOneTap";
+import * as Clerk from '@clerk/elements/common'
+import * as SignUp from '@clerk/elements/sign-up'
 
-const SignUp = () => {
+const SignUpPge = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
 
   const [code, setCode] = useState("");
@@ -79,7 +81,7 @@ const SignUp = () => {
             <input
               type="text"
               name="code"
-              value={code}
+              value={code ?? ""}
               onChange={(e) => setCode(e.target.value)}
             />
           </div>
@@ -124,11 +126,14 @@ const SignUp = () => {
         </form>
       )}
 
-        <CustomGoogleOneTap>
-      <h1>Google One Tap Example</h1>
-    </CustomGoogleOneTap>
+     
+     {/* <SignUp.Root>
+      <SignUp.Step name="start">
+    <Clerk.Connection name="google">Sign up with Google</Clerk.Connection>
+   </SignUp.Step>
+   </SignUp.Root> */}
     </div>
   );
 };
 
-export default SignUp;
+export default SignUpPge;
