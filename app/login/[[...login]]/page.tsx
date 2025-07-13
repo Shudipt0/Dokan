@@ -32,7 +32,7 @@ const LogInPage = () => {
               <Clerk.Field name="identifier" className="w-full ">
                 <Clerk.Label className="flex items-center relative">
                   <Clerk.Input className="outline-none peer text-[18px] text-black/80 font-semibold duration-200 " />
-                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200  peer-valid:text-sm peer-valid:bg-white">
+                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white">
                     Email
                   </span>
                 </Clerk.Label>
@@ -46,7 +46,7 @@ const LogInPage = () => {
                     type="password"
                     className="outline-none peer text-[18px] text-black/80 font-semibold duration-200 "
                   />
-                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200  peer-valid:text-sm peer-valid:bg-white">
+                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5 peer-valid:text-sm peer-valid:bg-white">
                     Password
                   </span>
                 </Clerk.Label>
