@@ -17,7 +17,7 @@ const CategorySingleProduct = ({ id }: { id: string }) => {
   return (
     <div className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
       <SingleProduct data={data} />
-      <RelatedItems />
+      <RelatedItems category={data?.category} />
     </div>
   );
 };
