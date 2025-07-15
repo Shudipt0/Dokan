@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface Props{
@@ -39,9 +40,9 @@ const TotalCart = ({total} : Props) => {
         </div>
         {/* proccess button */}
         <div className="w-full flex items-center justify-center">
-          <button className="md:w-[260px] md:h-[56px] flex items-center justify-center rounded text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] text-white ">
+          <Link href='/checkout' className="md:w-[260px] md:h-[56px] flex items-center justify-center rounded text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] text-white ">
             Proccess To Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>

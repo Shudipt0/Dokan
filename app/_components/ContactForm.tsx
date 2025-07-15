@@ -64,6 +64,7 @@ const ContactForm = () => {
       </div>
       <div className="w-full flex justify-end">
         <button
+        type="submit"
           disabled={ispending}
           className="md:w-[215px] md:h-14 text-white text-[16px] font-semibold bg-[#DB4444] rounded flex items-center justify-center cursor-pointer"
         >
