@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import TopNavbar from "./TopNavbar";
@@ -8,22 +8,20 @@ import MobileNavbar from "./MobileNavbar";
 import ModalMenu from "./ModalMenu";
 
 const NavItem = [
-  {link: "/", label: "Home"},
-  {link: "#", label: "Contact"},
-  {link: "#", label: "About"},
-  {link: "#", label: "Sign Up"},
-]
+  { link: "/", label: "Home" },
+  { link: "/contact", label: "Contact" },
+  { link: "/about", label: "About" },
+];
 
 const Navbar = () => {
   return (
     <div className="h-28 border border-gray-300">
       {/* upper nav */}
-     <TopNavbar/>
+      <TopNavbar />
       {/* main navbar */}
-     <DesktopNavbar NavItem={NavItem} />
-     <MobileNavbar NavItem={NavItem}/>
-     <ModalMenu/>
-
+      <DesktopNavbar NavItem={NavItem} />
+      <MobileNavbar NavItem={NavItem} />
+      <ModalMenu />
     </div>
   );
 };

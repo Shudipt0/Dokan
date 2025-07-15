@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./_components/Navbar";
 import SearchModal from "./_components/SearchModal";
 import Providers from "./providers";
+import Footer from "./_components/Footer";
 
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
                 <SearchModal />
 
                 {children}
+                <Footer/>
                 </Providers>
               </body>
             </html>
