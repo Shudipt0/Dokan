@@ -1,34 +1,226 @@
+// "use client";
+
+// // import ProductCard from "@/app/_components/ProductCard";
+// import ProductCardTwo from "@/app/_components/ProductCardTwo";
+// import { fetchCategoryItem } from "@/app/api/Api";
+// import { useQuery } from "@tanstack/react-query";
+
+// interface Products {
+//   id: string | number;
+
+//   // add other product fields as needed
+// }
+
+// const CategoryProducts = ({ slug }: { slug: string }) => {
+//     // Fetch products based on the category slug
+//     // console.log(slug);
+
+//   const { data } = useQuery({
+//     queryKey: ["products", slug],
+//     queryFn: () => fetchCategoryItem(slug),
+//   });
+//   // console.log(data)
+
+//   // filter logics
+//   return (
+//     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
+//       {/* filtering */}
+//       <div className="">
+
+//       </div>
+
+//       {/* products section */}
+//       <div className="md:w-[860px] grid grid-cols-3 gap-6">
+//         {data?.products?.map((item: Products) => (
+//           <ProductCardTwo key={item.id} item={item} />
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default CategoryProducts;
+
 "use client";
 
-// import ProductCard from "@/app/_components/ProductCard";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useMemo, useState } from "react";
 import ProductCardTwo from "@/app/_components/ProductCardTwo";
 import { fetchCategoryItem } from "@/app/api/Api";
-import { useQuery } from "@tanstack/react-query";
+import { Range } from "react-range";
 
-interface Products {
+interface Product {
   id: string | number;
-
-  // add other product fields as needed
+  title: string;
+  brand: string;
+  rating: number;
+  thumbnail: string;
+  price: number;
+  // add more fields if needed
 }
 
 const CategoryProducts = ({ slug }: { slug: string }) => {
-    // Fetch products based on the category slug
-    // console.log(slug);
-    
   const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => fetchCategoryItem(slug),
   });
-  // console.log(data)
+
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(10000);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 10000]);
+
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
+
+  // price range
+  useEffect(() => {
+    if (data?.products?.length) {
+      const prices = data.products.map((p: Product) => p.price);
+      const min = Math.min(...prices);
+      const max = Math.max(...prices);
+      setMinPrice(min);
+      setMaxPrice(max);
+      setPriceRange([min, max]);
+    }
+  }, [data]);
+
+  // Extract unique brands and ratings
+  const brands = useMemo(() => {
+    return data?.products
+      ? [...new Set(data.products.map((p: Product) => p.brand))]
+      : [];
+  }, [data]);
+
+  const ratings = useMemo(() => {
+    return data?.products
+      ? [
+          ...new Set(data.products.map((p: Product) => Math.floor(p.rating))),
+        ].sort((a, b) => (b as number) - (a as number))
+      : [];
+  }, [data]);
+
+  // Filtered products
+  const filteredProducts = useMemo(() => {
+    if (!data?.products) return [];
+
+    return data.products.filter((product: Product) => {
+      const matchBrand =
+        selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+      const matchRating =
+        selectedRatings.length === 0 ||
+        selectedRatings.includes(Math.floor(product.rating));
+      const matchPrice =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+
+      return matchBrand && matchRating && matchPrice;
+    });
+  }, [data, selectedBrands, selectedRatings, priceRange]);
+
+  const handleBrandChange = (brand: string) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
+
+  const handleRatingChange = (rating: number) => {
+    setSelectedRatings((prev) =>
+      prev.includes(rating)
+        ? prev.filter((r) => r !== rating)
+        : [...prev, rating]
+    );
+  };
+
   return (
-    <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
-      <div className="">inputs</div>
+    <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between gap-3 md:py-20">
+      {/* filtering */}
+      <div className=" md:w-[280px] space-y-4">
+        {/* ------------ */}
+        <div>
+          <h4 className="font-semibold mb-2">Filter by Price</h4>
+          <div className="text-sm mb-2">
+            ₹{priceRange[0]} — ₹{priceRange[1]}
+          </div>
+          <Range
+            step={10}
+            min={minPrice}
+            max={maxPrice}
+            values={priceRange}
+            onChange={(values) => setPriceRange(values as [number, number])}
+            renderTrack={({ props, children }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: "6px",
+                  background: "#e5e7eb",
+                  borderRadius: "4px",
+                }}
+                className="w-[90%] ml-2"
+              >
+                {children}
+              </div>
+            )}
+            renderThumb={({ props }) => {
+              const { key, ...rest } = props;
+
+              return (
+                <div
+                  key={key} // ✅ Set key explicitly
+                  {...rest} // ✅ Spread the rest
+                  style={{
+                    ...props.style,
+                    height: "20px",
+                    width: "20px",
+                    backgroundColor: "#3b82f6",
+                    borderRadius: "50%",
+                  }}
+                />
+              );
+            }}
+          />
+        </div>
+
+        {/* ------------------ */}
+        <div>
+          <h4 className="font-semibold mb-2">Filter by Brand</h4>
+          {brands.map((brand: any, index) => (
+            <label key={index} className="block text-sm">
+              <input
+                type="checkbox"
+                className="mr-2"
+                checked={selectedBrands.includes(brand)}
+                onChange={() => handleBrandChange(brand)}
+              />
+              {brand}
+            </label>
+          ))}
+        </div>
+
+        <div>
+          <h4 className="font-semibold mb-2">Filter by Rating</h4>
+          {ratings.map((rating: any) => (
+            <label key={rating} className="block text-sm">
+              <input
+                type="checkbox"
+                className="mr-2"
+                checked={selectedRatings.includes(rating)}
+                onChange={() => handleRatingChange(rating)}
+              />
+              {rating}★ & up
+            </label>
+          ))}
+        </div>
+      </div>
 
       {/* products section */}
-      <div className="md:w-[860px] grid grid-cols-3 gap-6">
-        {data?.products?.map((item: Products) => (
-          <ProductCardTwo key={item.id} item={item} />
-        ))}
+      <div className=" md:w-full min-h-[500px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        {filteredProducts.length ? (
+          filteredProducts.map((item: Product) => (
+            <ProductCardTwo key={item.id} item={item} />
+          ))
+        ) : (
+          <p>No products match selected filters.</p>
+        )}
       </div>
     </section>
   );

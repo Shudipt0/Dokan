@@ -1,7 +1,7 @@
 import ShopProductPage from "@/app/_components/ShopProductPage";
 import SingleProductPage from "@/app/_components/SingleProductPage";
 
-const shopPage = ({ params }: { params: { slug?: string[] } }) => {
+const shopPage = async ({ params }: { params: { slug?: string[] } }) => {
   const slug = params?.slug;
 
   if (slug && slug.length === 1) {
