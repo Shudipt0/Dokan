@@ -8,6 +8,8 @@ const HeroBanner = () => {
        const {data,isPending, isError,error} = useQuery({
         queryKey: ["categories"],
         queryFn: fetchAllCategory,
+        staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
      });
    //   console.log(data);
   return (

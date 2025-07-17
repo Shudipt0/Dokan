@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { useQuery } from "@tanstack/react-query";
 import FlashsaleCarousel from "./FlashsaleCarousel";
 import ProductButton from "./ProductButton";
@@ -8,6 +8,8 @@ const HeroFlashsale = () => {
   const {data, isPending, isError, error} = useQuery({
     queryKey: ['flashProduct'],
     queryFn: fetchFlashSaleProducts,
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   })
   // console.log(data)
   return (

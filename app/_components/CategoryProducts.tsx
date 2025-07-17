@@ -1,46 +1,3 @@
-// "use client";
-
-// // import ProductCard from "@/app/_components/ProductCard";
-// import ProductCardTwo from "@/app/_components/ProductCardTwo";
-// import { fetchCategoryItem } from "@/app/api/Api";
-// import { useQuery } from "@tanstack/react-query";
-
-// interface Products {
-//   id: string | number;
-
-//   // add other product fields as needed
-// }
-
-// const CategoryProducts = ({ slug }: { slug: string }) => {
-//     // Fetch products based on the category slug
-//     // console.log(slug);
-
-//   const { data } = useQuery({
-//     queryKey: ["products", slug],
-//     queryFn: () => fetchCategoryItem(slug),
-//   });
-//   // console.log(data)
-
-//   // filter logics
-//   return (
-//     <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
-//       {/* filtering */}
-//       <div className="">
-
-//       </div>
-
-//       {/* products section */}
-//       <div className="md:w-[860px] grid grid-cols-3 gap-6">
-//         {data?.products?.map((item: Products) => (
-//           <ProductCardTwo key={item.id} item={item} />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default CategoryProducts;
-
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
@@ -63,6 +20,8 @@ const CategoryProducts = ({ slug }: { slug: string }) => {
   const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => fetchCategoryItem(slug),
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   });
 
   const [minPrice, setMinPrice] = useState(0);
@@ -131,14 +90,14 @@ const CategoryProducts = ({ slug }: { slug: string }) => {
   };
 
   return (
-    <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between gap-3 md:py-20">
+    <section className="container min-h-[500px] mx-auto px-2 md:px-14 bg-white md:flex justify-between gap-3 md:py-20">
       {/* filtering */}
-      <div className=" md:w-[280px] space-y-4">
+      <div className=" md:w-[280px] space-y-8">
         {/* ------------ */}
         <div>
           <h4 className="font-semibold mb-2">Filter by Price</h4>
-          <div className="text-sm mb-2">
-            ₹{priceRange[0]} — ₹{priceRange[1]}
+          <div className="text-sm mb-2 cursor-pointer">
+            ${priceRange[0]} — ${priceRange[1]}
           </div>
           <Range
             step={10}
@@ -162,7 +121,6 @@ const CategoryProducts = ({ slug }: { slug: string }) => {
             )}
             renderThumb={({ props }) => {
               const { key, ...rest } = props;
-
               return (
                 <div
                   key={key} // ✅ Set key explicitly
@@ -181,25 +139,26 @@ const CategoryProducts = ({ slug }: { slug: string }) => {
         </div>
 
         {/* ------------------ */}
-        <div>
+        <div className="space-y-2">
           <h4 className="font-semibold mb-2">Filter by Brand</h4>
           {brands.map((brand: any, index) => (
-            <label key={index} className="block text-sm">
+            <label key={index} className="block text-sm cursor-pointer">
               <input
                 type="checkbox"
                 className="mr-2"
                 checked={selectedBrands.includes(brand)}
                 onChange={() => handleBrandChange(brand)}
+                
               />
               {brand}
             </label>
           ))}
         </div>
 
-        <div>
+        <div className="space-y-2">
           <h4 className="font-semibold mb-2">Filter by Rating</h4>
           {ratings.map((rating: any) => (
-            <label key={rating} className="block text-sm">
+            <label key={rating} className="block text-sm cursor-pointer">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -213,7 +172,7 @@ const CategoryProducts = ({ slug }: { slug: string }) => {
       </div>
 
       {/* products section */}
-      <div className=" md:w-full min-h-[500px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+      <div className=" md:w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-end gap-3">
         {filteredProducts.length ? (
           filteredProducts.map((item: Product) => (
             <ProductCardTwo key={item.id} item={item} />

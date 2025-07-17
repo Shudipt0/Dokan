@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import ProductButton from "./ProductButton";
 import HeroProductPagination from "./HeroProductPagination";
 import { useQuery } from "@tanstack/react-query";
@@ -11,6 +11,8 @@ const HeroAllProducts = () => {
   const {data} = useQuery({
     queryKey: ['products', pageNumber, limit],
     queryFn: () => fetchAllProducts(pageNumber,limit),
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   });
   // console.log(data?.products)
   return (

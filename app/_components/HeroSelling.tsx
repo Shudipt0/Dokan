@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { useQuery } from "@tanstack/react-query";
 import HeroHeadLine from "./HeroHeadLine";
 import ProductCard from "./ProductCard";
@@ -9,6 +9,8 @@ const HeroSelling = () => {
   const {data, isPending, isError,error} = useQuery({
     queryKey: ['saleProducts'],
     queryFn: fetchBestSale,
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   })
   return (
     <section className="py-24">
@@ -21,7 +23,7 @@ const HeroSelling = () => {
         ))}
         </div>
         <button className=" md:w-[160px] md:h-14 absolute md:top-12 md:right-0 text-white text-[16px] font-semibold bg-[#DB4444] rounded flex items-center justify-center ">
-          <Link href="#">View All</Link>
+          <Link href="/shop">View All</Link>
         </button>
       </div>
     </section>
