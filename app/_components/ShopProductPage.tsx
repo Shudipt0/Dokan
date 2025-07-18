@@ -24,6 +24,8 @@ const ShopProductPage = () => {
     {
       queryKey: ["products", pageNumber, limit],
       queryFn: () => fetchAllProducts(pageNumber, limit),
+       staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
     }
   );
   // console.log(data);
