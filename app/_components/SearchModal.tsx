@@ -19,7 +19,7 @@ const SearchModal = () => {
 
   // data call
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["produts", query],
+    queryKey: ["products", query],
     queryFn: () => fetchSearchProducts(query),
   });
   // console.log(data)

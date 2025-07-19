@@ -20,8 +20,8 @@ const SearchProducts = ({ slug }: { slug: string }) => {
   const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => fetchSearchProducts(slug),
-    staleTime: 1000 * 60 * (60 * 24), // 24 hours
-    refetchOnWindowFocus: false,
+    // staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    // refetchOnWindowFocus: false,
   });
     //  console.log(data)
 

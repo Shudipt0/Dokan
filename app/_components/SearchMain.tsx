@@ -6,17 +6,20 @@ import { useToggleMenu } from "@/context/NavbarToggleContext";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import SearchRaise from "./SearchRaise";
 
 const SearchMain = () => {
-  const { setSearchItem } = useToggleMenu();
+  // const { setSearchItem } = useToggleMenu();
 
+  
   // active link
   const pathName = usePathname();
 
-  const handleSearchModal = () => {
-    setSearchItem(true);
-    // console.log("search on");
-  };
+  // const handleSearchModal = () => {
+  //   setSearchItem(true);
+  //  // console.log("search on");
+  // };
 
   // Define RootState type according to your Redux store
   interface RootState {
@@ -33,7 +36,8 @@ const SearchMain = () => {
 
   return (
     <div className="flex items-center gap-3  md:gap-6">
-      <button
+      <SearchRaise/>
+      {/* <button
         onClick={handleSearchModal}
         className="w-8 md:w-[250px] h-9 flex items-center justify-center md:justify-between bg-gray-100 rounded text-black/80 px-4 z-20 cursor-pointer"
       >
@@ -44,7 +48,7 @@ const SearchMain = () => {
         <span>
           <FiSearch size={24} className="text-black/90" />
         </span>
-      </button>
+      </button> */}
       <Link
         href="#"
         className={`relative ${

@@ -21,7 +21,4 @@ const categoryPage = async ({
 
 export default categoryPage;
 
-// Extract slug from params
-// { params }: { params: { slug?: string[] } }
-// ✅ Access `params.slug` only after the function begins
-// const slug = (await Promise.resolve(params)).slug;
+

@@ -11,7 +11,7 @@ const wishlistPage = () => {
 
 const handleAllDelete = () => {
   // Dispatch an action to clear all items from the wishlist
-  dispatch(clearWishlist())
+  dispatch(clearWishlist([]))
 };
 
   return (
