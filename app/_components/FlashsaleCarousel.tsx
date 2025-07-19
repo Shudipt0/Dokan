@@ -6,7 +6,7 @@ import { GoArrowRight } from "react-icons/go";
 import HeroHeadLine from "./HeroHeadLine";
 
 
-export const revalidate = 3600 * 24; // Revalidate every hour
+// export const revalidate = 3600 * 24; // Revalidate every hour
 
 interface FlashsaleCarouselProps {
   products: any[]; // Replace 'any' with your actual product type if available

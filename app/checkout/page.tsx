@@ -6,6 +6,13 @@ import { createOrder } from "../actions/order/createOrder";
 import Link from "next/link";
 import { clearCart } from "../redux/cartslice/cartSlice";
 
+interface RootState {
+  cart: {
+    items: any[];
+    total: number;
+  };
+}
+
 const checkoutPage = () => {
   const { items, total } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();

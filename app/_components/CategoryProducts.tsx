@@ -7,7 +7,7 @@ import { fetchCategoryItem } from "@/app/api/Api";
 import { Range } from "react-range";
 
 interface Product {
-  id: string | number;
+  id: string ;
   title: string;
   brand: string;
   rating: number;
@@ -16,7 +16,7 @@ interface Product {
   // add more fields if needed
 }
 
-const CategoryProducts = ({ slug }: { slug: string }) => {
+const CategoryProducts = ({ slug }: { slug?: string }) => {
   const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => fetchCategoryItem(slug),

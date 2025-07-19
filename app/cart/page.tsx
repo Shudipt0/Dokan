@@ -4,7 +4,13 @@ import Link from "next/link";
 import TotalCart from "../_components/TotalCart";
 import { useSelector } from "react-redux";
 
-import RootState from "../redux/store"; // adjust the import path as needed
+interface RootState {
+  cart: {
+    items: any[]; // Replace 'any' with your actual item type
+    total: number; // Assuming you have a total in your cart state
+  };
+}
+
 
 const cartPage = () => {
   const {items, total} = useSelector((state: RootState) => state.cart)

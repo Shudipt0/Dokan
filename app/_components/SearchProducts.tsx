@@ -20,8 +20,10 @@ const SearchProducts = ({ slug }: { slug: string }) => {
   const { data } = useQuery({
     queryKey: ["products", slug],
     queryFn: () => fetchSearchProducts(slug),
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   });
-     console.log(data)
+    //  console.log(data)
 
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(10000);

@@ -18,6 +18,16 @@ const SearchMain = () => {
     // console.log("search on");
   };
 
+  // Define RootState type according to your Redux store
+  interface RootState {
+    cart: {
+      items: any[]; // Replace 'any' with your actual item type
+    };
+    wishlist: {
+      items: any[]; // Replace 'any' with your actual item type
+    };
+  }
+
   const { items } = useSelector((state: RootState) => state.cart);
   const wish = useSelector((state: RootState) => state.wishlist);
 

@@ -1,4 +1,3 @@
-import React from "react";
 import HeroHeadLine from "./HeroHeadLine";
 import CategoryBox from "./CategoryBox";
 import Carousel from "react-multi-carousel";

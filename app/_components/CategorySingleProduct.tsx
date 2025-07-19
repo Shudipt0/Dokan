@@ -6,11 +6,13 @@ import { useQuery } from "@tanstack/react-query";
 import React, { use } from "react";
 
 const CategorySingleProduct = ({ id }: { id: string }) => {
-    // Fetch product details based on the product ID
-    // console.log(id);
+  // Fetch product details based on the product ID
+  // console.log(id);
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["product", id],
     queryFn: () => fetchProduct(id),
+    staleTime: 1000 * 60 * (60 * 24), // 24 hours
+    refetchOnWindowFocus: false,
   });
   // console.log(data)
 
