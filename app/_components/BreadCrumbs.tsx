@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation"
 const BreadCrumbs = () => {
    const pathName = usePathname();
    const pathParts = pathName.split('/').filter((part) => part);
-   console.log(pathParts)
+  //  console.log(pathParts)
    let breadcrumbPath = '';
   return (
     <div className="container mx-auto px-2 md:px-14 bg-white">

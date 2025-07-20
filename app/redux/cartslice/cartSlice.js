@@ -12,9 +12,10 @@ const cartSlice = createSlice({
     // add to cart
     addToCart: (state, action) => {
       const payload = action.payload || {};
-  const id = payload.id;
-  const price = payload.price;
-  const quantity = typeof payload.quantity === 'number' ? payload.quantity : 1;
+      const id = payload.id;
+      const price = payload.price;
+      const quantity =
+        typeof payload.quantity === "number" ? payload.quantity : 1;
       // if the product already exists in the cart
       const existingProductIndex = state.items.findIndex(
         (item) => item.id === action.payload.id
@@ -25,7 +26,7 @@ const cartSlice = createSlice({
         state.items[existingProductIndex].quantity += quantity;
       } else {
         // add product to the cart
-        state.items.push({ ...action.payload , quantity});
+        state.items.push({ ...action.payload, quantity });
         // state.total + action.payload.quantity
       }
       //calculate the total price

@@ -29,8 +29,8 @@ const ProductCard = ({ item }: ProductCardProps) => {
             src={item?.images[0]}
             alt={`Product image ${item?.images[0]?.id}`}
             width={190}
-            height={0}
-            style={{ height: "auto" }}
+            height={190}
+            // style={{ height: "auto" }}
           />
         </div>
         {/* floating items */}

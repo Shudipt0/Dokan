@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const HeroCarousel = () => {
   return (
-    <div className="w-full md:h-96 md:flex justify-end items-end">
+    <div className=" w-full md:h-96 md:flex justify-end items-start">
       <Carousel
       autoPlay={true}
       showArrows={false}
@@ -14,13 +14,13 @@ const HeroCarousel = () => {
       showThumbs={false}
       className="w-[95%] md:h-[344px]">
         <div className=" ">
-          <Image src={hero1} alt="hero1 image" className=" w-full md:h-[344px] bg-cover" />
+          <Image src={hero1} alt="hero1 image" className=" " width={1000} height={280} priority={true} />
         </div>
         <div className=" ">
-          <Image src={hero1} alt="hero1 image" className="w-full md:h-[344px] bg-cover" />
+          <Image src={hero1} alt="hero1 image" className=" " width={1000} height={280} priority={true} />
         </div>
         <div className=" ">
-          <Image src={hero1} alt="hero1 image" className="w-full md:h-[344px] bg-cover" />
+          <Image src={hero1} alt="hero1 image" className=" " width={1000} height={280} priority={true} />
         </div>
       </Carousel>
     </div>

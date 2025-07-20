@@ -22,7 +22,7 @@ const ProductCardTwo = ({item}: ProductCardProps) => {
      <Link href={`/category/${item.category}/${item?.id}`} className=' group md:w-[270px] md:h-[350px] flex flex-col justify-between ' >
         {/* image part */}
         <div className='relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm'>
-           <div className='md:w-[190px] md:h-[180px]'>
+           <div className='md:w-[190px] md:h-[190px]'>
             <Image src={item?.images[0]} alt={`Product image ${item?.images[0]?.id}`} width={190} height={180} />
            </div>
            {/* floating items */}

@@ -10,6 +10,8 @@ const NewArrivalItemTree = () => {
         src={newItemThree}
         alt="category banner"
         className="md:w-[190px] md:h-[220px] bg-cover "
+        width={190}
+        height={220}
       />
       <div className="absolute bottom-8 left-8 space-y-1">
         <p className=" text-[26px] font-semibold text-white ">

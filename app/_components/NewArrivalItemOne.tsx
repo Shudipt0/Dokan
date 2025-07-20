@@ -9,6 +9,8 @@ const NewArrivalItemOne = () => {
         src={newItemOne}
         alt="category banner"
         className="w-[510px] h-[510px] bg-cover "
+        width={510}
+        height={510}
       />
       <div className="absolute bottom-10 left-10 space-y-3">
         <p className=" text-[26px] font-semibold text-white ">

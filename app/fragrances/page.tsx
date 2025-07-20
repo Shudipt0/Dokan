@@ -18,7 +18,7 @@ const fragrancePage = () => {
   });
   console.log(data);
   return (
-    <section className="container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
+    <section className=" container mx-auto px-2 md:px-14 bg-white md:flex justify-between md:py-20">
       <div className="">inputs</div>
 
       {/* products section */}

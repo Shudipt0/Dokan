@@ -10,6 +10,8 @@ const NewArrivalTwo = () => {
         src={newItemTwo}
         alt="category banner"
         className="w-full h-full bg-cover "
+        width={570}
+        height={284}
       />
       <div className="absolute bottom-8 left-8 space-y-2">
         <p className=" text-[26px] font-semibold text-white ">
