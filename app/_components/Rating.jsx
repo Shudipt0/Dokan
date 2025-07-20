@@ -13,7 +13,7 @@ const Rating = ({ rating }) => {
             <FaStarHalf className="text-yellow-500" />
 
            ) : (
-            <FaRegStar className="text-gray-500" />
+            <FaStar className="text-gray-400" />
            ) }
       </span>
     )

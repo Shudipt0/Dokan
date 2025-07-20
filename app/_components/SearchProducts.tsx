@@ -23,7 +23,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
     // staleTime: 1000 * 60 * (60 * 24), // 24 hours
     // refetchOnWindowFocus: false,
   });
-    //  console.log(data)
+     console.log(data)
 
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(10000);
@@ -36,8 +36,8 @@ const SearchProducts = ({ slug }: { slug: string }) => {
 
    // price range
     useEffect(() => {
-      if (data?.length) {
-        const prices = data.products.map((p: Product) => p.price);
+      if (data?.length > 0) {
+        const prices = data?.map((p: Product) => p.price);
         const min = Math.min(...prices);
         const max = Math.max(...prices);
         setMinPrice(min);
@@ -49,14 +49,14 @@ const SearchProducts = ({ slug }: { slug: string }) => {
     // Extract unique brands and ratings
     const brands = useMemo(() => {
       return data
-        ? [...new Set(data.map((p: Product) => p.brand))]
+        ? [...new Set(data?.map((p: Product) => p.brand))]
         : [];
     }, [data]);
   
     const ratings = useMemo(() => {
       return data
         ? [
-            ...new Set(data.map((p: Product) => Math.floor(p.rating))),
+            ...new Set(data?.products?.map((p: Product) => Math.floor(p.rating))),
           ].sort((a, b) => (b as number) - (a as number))
         : [];
     }, [data]);
@@ -65,7 +65,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
     const filteredProducts = useMemo(() => {
       if (!data) return [];
   
-      return data.filter((product: Product) => {
+      return data?.filter((product: Product) => {
         const matchBrand =
           selectedBrands.length === 0 || selectedBrands.includes(product.brand);
         const matchRating =

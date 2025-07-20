@@ -6,11 +6,11 @@ const formSchema = z.object({
   name: z.string().min(3).max(15),
   companyName: z.string() || z.null,
   address: z.string().min(5),
-  apertment: z.string().min(5),
+  apertment: z.string() || z.null,
   city: z.string().min(5),
   phone: z.string().min(11).max(11),
   email: z.string().email(),
-  products: z.string(),
+  products: z.array(z.string()),
   coupon: z.string() || z.null,
 });
 
@@ -24,7 +24,7 @@ export const createOrder = async (prevState: any, formData: FormData) => {
     city: formData.get("city") as string,
     phone: formData.get("phone") as string,
     email: formData.get("email") as string,
-    products: formData.get("products") as string,
+    products: formData.getAll("products") as string[],
     coupon: formData.get("coupon") as string,
   });
   

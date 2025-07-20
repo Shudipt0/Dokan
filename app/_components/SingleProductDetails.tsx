@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux';
 import { addToCart } from '../redux/cartslice/cartSlice';
 import { useState } from "react";
 import { addToList } from "../redux/wishlistSlice/wishlistSlice";
+import { redirect } from "next/navigation";
 
 
 interface Item {
@@ -28,6 +29,14 @@ const SingleProductDetails = ({ product }: Item) => {
   };
   const handleAddToCart = () => {
     dispatch(addToCart({...product, quantity}))
+  };
+
+  // buy now
+  // This function can be used to directly add the product to the cart and redirect to checkout
+  const handleBuyNow = () => {
+    dispatch(addToCart({...product, quantity}))
+    // Redirect to checkout page
+    redirect('/checkout')
   };
 
   // add wish list
@@ -104,7 +113,7 @@ const SingleProductDetails = ({ product }: Item) => {
           </button>
         </div>
         {/* buy button */}
-        <button className="md:w-[165px] md:h-[44px] text-white text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB4466] rounded flex items-center justify-center cursor-pointer">
+        <button onClick={handleBuyNow} className="md:w-[165px] md:h-[44px] text-white text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB4466] rounded flex items-center justify-center cursor-pointer">
           Buy Now
         </button>
         {/* wish button */}

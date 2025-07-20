@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../actions/order/createOrder";
 import Link from "next/link";
 import { clearCart } from "../redux/cartslice/cartSlice";
+import { toast } from "sonner";
 
 interface RootState {
   cart: {
@@ -24,6 +25,7 @@ const checkoutPage = () => {
 useEffect(() => {
   if (state?.success) {
     dispatch(clearCart());
+    toast.success("Order placed successfully!")
     // setOrderSuccess(true);
   }
 }, [state]);
@@ -167,9 +169,10 @@ useEffect(() => {
             </Link>
           </div>
           {/* order button */}
-          <button type="submit"  disabled={ispending} className="md:w-[200px] md:h-12 text-white text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] rounded flex items-center justify-center ">
+          <button type="submit"  disabled={ispending}  className="md:w-[200px] md:h-12 text-white text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] rounded flex items-center justify-center ">
             Place Order
           </button>
+
         </div>
       </form>
     </section>

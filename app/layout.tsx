@@ -1,12 +1,11 @@
-
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
-import SearchModal from "./_components/SearchModal";
+// import SearchModal from "./_components/SearchModal";
 import Providers from "./providers";
 import Footer from "./_components/Footer";
-
+import { Toaster } from "sonner";
+import BreadCrumbs from "./_components/BreadCrumbs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,30 +17,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-  
-            <html lang="en" suppressHydrationWarning>
-             
-              <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
-                cz-shortcut-listen="true"
-              >
-                <Providers>
-                <Navbar />
-                <SearchModal />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
+        cz-shortcut-listen="true"
+      >
+        <Providers>
+          <Navbar />
+          <BreadCrumbs/>
+          {/* <SearchModal /> */}
 
-                {children}
-                <Footer/>
-                </Providers>
-              </body>
-            </html>
-    
+          {children}
+          <Footer />
+       <Toaster position="top-right" richColors />
+
+        </Providers>
+      </body>
+    </html>
   );
 }

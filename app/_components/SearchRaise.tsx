@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { fetchSearchProducts } from "../api/Api";
 import Link from "next/link";
+import { LiaTimesSolid } from "react-icons/lia";
 
 const SearchRaise = () => {
   const [searchBar, setSearchBar] = useState(false);
@@ -22,10 +23,9 @@ const SearchRaise = () => {
   });
 
   const handleSearchClick = () => {
-    // setSearchBar(!searchBar);
-    //   redirect(`/products/${query}`);
     if (query.length > 0) {
-      // setSearchBar(!searchBar);
+      setSearchBar(!searchBar);
+      setQuery("");
       redirect(`/products/${query}`);
     }
     // console.log("search on");
@@ -34,7 +34,6 @@ const SearchRaise = () => {
   // handle on focus
   const handleFocus = () => {
     setSearchBar(true);
-    // setShowResults(true);
   };
 
   // handle on focus
@@ -42,6 +41,12 @@ const SearchRaise = () => {
     if (!query) {
       setSearchBar(false);
     }
+  };
+
+  const handleClear = () => {
+    setQuery("");
+    setSearchBar(false);
+    setShowResults(false);
   };
 
   return (
@@ -64,10 +69,17 @@ const SearchRaise = () => {
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-
-        <button onClick={handleSearchClick}>
-          <FiSearch size={24} className="text-black/90 cursor-pointer" />
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={handleSearchClick}>
+            <FiSearch size={24} className="text-black/90 cursor-pointer" />
+          </button>
+          <button
+            onClick={handleClear}
+            className={`${query ? "block" : "hidden"}`}
+          >
+            <LiaTimesSolid size={24} className="text-red-500 cursor-pointer" />
+          </button>
+        </div>
       </div>
 
       {/* search results */}
