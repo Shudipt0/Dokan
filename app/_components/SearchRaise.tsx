@@ -21,9 +21,13 @@ const SearchRaise = () => {
     queryFn: () => fetchSearchProducts(query),
   });
 
-  const handleSearchModal = () => {
-    setSearchBar(!searchBar);
-    redirect(`/products/${query}`);
+  const handleSearchClick = () => {
+    // setSearchBar(!searchBar);
+    //   redirect(`/products/${query}`);
+    if (query.length > 0) {
+      // setSearchBar(!searchBar);
+      redirect(`/products/${query}`);
+    }
     // console.log("search on");
   };
 
@@ -35,8 +39,9 @@ const SearchRaise = () => {
 
   // handle on focus
   const handleBlur = () => {
-    // setSearchBar(false);
-    setShowResults(false);
+    if (!query) {
+      setSearchBar(false);
+    }
   };
 
   return (
@@ -60,7 +65,7 @@ const SearchRaise = () => {
           onBlur={handleBlur}
         />
 
-        <button onClick={handleSearchModal}>
+        <button onClick={handleSearchClick}>
           <FiSearch size={24} className="text-black/90 cursor-pointer" />
         </button>
       </div>
@@ -70,10 +75,10 @@ const SearchRaise = () => {
         <ul className="absolute -bottom-[360px] w-full md:w-[500px] md:h-[360px] overflow-hidden z-20">
           {data && data?.length > 0 ? (
             data?.map((item: any) => (
-              <li key={item.id} onClick={() => setShowResults(false)} >
+              <li key={item.id} onClick={() => setShowResults(false)}>
                 <Link
                   className="block px-4 py-2 bg-white hover:bg-gray-100 rounded"
-                  href={`/shop/${item.id}`} 
+                  href={`/shop/${item.id}`}
                 >
                   {item.title}
                 </Link>
