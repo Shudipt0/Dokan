@@ -1,5 +1,4 @@
 "use client";
-
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import ProductCardTwo from "@/app/_components/ProductCardTwo";
