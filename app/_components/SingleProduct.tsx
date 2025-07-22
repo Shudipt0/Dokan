@@ -1,9 +1,7 @@
-'use client'
+// 'use client'
 import SingleProductImage from './SingleProductImage'
 import SingleProductDetails from './SingleProductDetails'
-import { useQuery } from '@tanstack/react-query'
-import { fetchProduct } from '../api/Api'
-import { useParams } from 'next/navigation'
+
 
 const SingleProduct = ({data}: any) => {
 

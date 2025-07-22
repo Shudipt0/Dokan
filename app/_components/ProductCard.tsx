@@ -1,7 +1,7 @@
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import Rating from "./Rating";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 
 interface ProductCardProps {

@@ -1,6 +1,6 @@
 'use clinet'
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import CartInDeButton from "./CartInDeButton";
 import { FaTimesCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";

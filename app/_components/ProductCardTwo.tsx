@@ -2,7 +2,7 @@ import React from 'react'
 import Rating from './Rating'
 import { CiHeart } from 'react-icons/ci'
 import { IoEyeOutline } from 'react-icons/io5'
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 
 
@@ -23,7 +23,7 @@ const ProductCardTwo = ({item}: ProductCardProps) => {
         {/* image part */}
         <div className='relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm'>
            <div className='md:w-[190px] md:h-[190px]'>
-            <Image src={item?.images[0]} alt={`Product image ${item?.images[0]?.id}`} width={190} height={180} />
+            <Image src={item?.images[0]} alt={`Product image ${item?.images[0]?.id}`} width={190} height={190} />
            </div>
            {/* floating items */}
            <button className='absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer' >Add To Cart</button>

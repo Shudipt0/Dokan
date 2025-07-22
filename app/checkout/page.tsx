@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useActionState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../actions/order/createOrder";

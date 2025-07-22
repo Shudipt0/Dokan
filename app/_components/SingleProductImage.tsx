@@ -1,17 +1,8 @@
 "use client";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import havic1 from "../../public/havic1.png";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
-
-// const Images = [
-//   { id: 1, src: havic1 },
-//   { id: 2, src: havic1 },
-//   { id: 3, src: havic1 },
-//   { id: 4, src: havic1 },
-//   { id: 5, src: havic1 },
-// ];
 
 interface Item {
   product: any; // Replace 'any' with a specific type for your product if available

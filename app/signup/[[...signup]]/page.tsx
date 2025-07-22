@@ -2,7 +2,7 @@
 
 import * as Clerk from "@clerk/elements/common";
 import * as SignUp from "@clerk/elements/sign-up";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import sideImage from "@/public/SideImage.jpg";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";

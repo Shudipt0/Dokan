@@ -13,7 +13,7 @@ const HeroBanner = () => {
      });
    //   console.log(data);
   return (
-    <div className='w-full md:flex '>
+    <div className='w-full md:flex  '>
       <HeroCategory categories={data}/>
       <HeroCarousel/>
     </div>
