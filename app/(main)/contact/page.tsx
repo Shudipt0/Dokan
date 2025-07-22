@@ -1,5 +1,5 @@
-import ContactForm from "../_components/ContactForm"
-import ContactWith from "../_components/ContactWith"
+import ContactForm from "../../_components/ContactForm"
+import ContactWith from "../../_components/ContactWith"
 
 
 

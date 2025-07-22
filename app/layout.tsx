@@ -1,11 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
-// import SearchModal from "./_components/SearchModal";
 import Providers from "./providers";
-import Footer from "./_components/Footer";
-import { Toaster } from "sonner";
-import BreadCrumbs from "./_components/BreadCrumbs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,16 +23,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
         cz-shortcut-listen="true"
       >
-        <Providers>
-          <Navbar />
-          <BreadCrumbs/>
-          {/* <SearchModal /> */}
-
-          {children}
-          <Footer />
-       <Toaster position="top-right" richColors />
-
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

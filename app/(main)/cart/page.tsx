@@ -1,7 +1,7 @@
 'use client'
-import CartItem from "../_components/CartItem";
+import CartItem from "../../_components/CartItem";
 import Link from "next/link";
-import TotalCart from "../_components/TotalCart";
+import TotalCart from "../../_components/TotalCart";
 import { useSelector } from "react-redux";
 
 interface RootState {

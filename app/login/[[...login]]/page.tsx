@@ -10,9 +10,9 @@ import Link from "next/link";
 const LogInPage = () => {
   return (
     <div className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
-      <div className="w-full md:flex items-center justify-between">
+      <div className="w-full md:flex items-center justify-center gap-30">
         <div>
-          <Image src={sideImage} alt="sideimage" width={800} height={780} />
+          <Image src={sideImage} alt="sideimage" width={600} height={600} />
         </div>
         <div className="md:w-[370px]   ">
           <SignIn.Root>

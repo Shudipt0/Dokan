@@ -2,9 +2,9 @@
 import Image from "next/legacy/image";
 import React, { useActionState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrder } from "../actions/order/createOrder";
+import { createOrder } from "../../actions/order/createOrder";
 import Link from "next/link";
-import { clearCart } from "../redux/cartslice/cartSlice";
+import { clearCart } from "../../redux/cartslice/cartSlice";
 import { toast } from "sonner";
 
 interface RootState {

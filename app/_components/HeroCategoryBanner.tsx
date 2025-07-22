@@ -8,7 +8,8 @@ const HeroCategoryBanner = () => {
       <Image
         src={categoryBanner}
         alt="category banner"
-        className="w-full h-full bg-cover "
+        width={1800}
+        height={600}
       />
       <div className="absolute top-40 left-14 space-y-8">
         <p className=" text-[16px] font-bold text-green-500 ">

@@ -1,8 +1,8 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
-import WishlistCart from "../_components/WishlistCart";
-import { clearWishlist } from "../redux/wishlistSlice/wishlistSlice";
+import WishlistCart from "../../_components/WishlistCart";
+import { clearWishlist } from "../../redux/wishlistSlice/wishlistSlice";
 
 const wishlistPage = () => {
   const { items } = useSelector((state: any) => state.wishlist);
