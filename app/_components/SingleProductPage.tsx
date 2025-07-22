@@ -1,10 +1,20 @@
 import RelatedItems from '@/app/_components/RelatedItems'
 import SingleProduct from '@/app/_components/SingleProduct'
-import { fetchProduct } from '@/app/api/Api';
+import { fetchAllProducts, fetchProduct } from '@/app/api/Api';
 
 
 export const revalidate = 0;
 // revalidate: 0 means no caching, always fetch fresh data
+
+
+// Return a list of `params` to populate the [slug] dynamic segment
+// export async function generateStaticParams() {
+//   const allProducts = await fetchAllProducts();
+ 
+//   return allProducts?.products?.map((product: { id: string }) => ({
+//     id: product.id,
+//   }))
+// }
 
 const SingleProductPage = async ({ id }: { id: string }) => {
   // Fetch product details based on the product ID

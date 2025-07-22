@@ -22,7 +22,7 @@ const DesktopNavbar = ({
       {/* logo */}
       <div>
         <Link href="/" className="text-lg text-black/80 font-bold">
-          Exclusive
+          Dokan
         </Link>
       </div>
       {/* nav items for desktop */}
