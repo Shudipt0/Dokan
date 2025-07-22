@@ -1,6 +1,16 @@
-import React from 'react'
+import { checkRole } from "@/utils/roles"
+import { redirect } from "next/navigation"
 
-const page = () => {
+
+
+const page = async () => {
+
+  const isAdmin = await checkRole('admin')
+
+  if (!isAdmin) {
+    redirect('/')  
+  };
+  
   return (
     <div>
       dashboard page

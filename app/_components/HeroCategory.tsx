@@ -16,7 +16,7 @@ const HeroCategory = ({ categories }: HeroCategoryProps) => {
   //  console.log(category)
   return (
     <div className="md:w-[350px] md:h-96 border-r border-gray-300 flex items-end">
-      <div className="w-[90%] h-[344px] flex flex-col space-y-3 overflow-auto scrollbar-thin ">
+      <div className="w-[90%] h-[344px] flex flex-col space-y-3 overflow-auto scrollbar-hide">
         {categories?.map((list, index) => (
           <Link
             key={index}
