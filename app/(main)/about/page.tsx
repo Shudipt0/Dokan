@@ -1,6 +1,8 @@
 import Image from "next/image";
 import sideImage from "@/public/SideImage.png";
 import HeroDelivery from "@/app/_components/HeroDelivery";
+import AboutNumberCard from "@/app/_components/AboutNumberCard";
+import Team from "@/app/_components/Team";
 
 const AboutPage = () => {
   return (
@@ -31,6 +33,10 @@ const AboutPage = () => {
         </div>
       </div>
 
+      {/* number card part */}
+      <AboutNumberCard />
+      {/* team section */}
+      <Team />
       {/* delivery part */}
       <HeroDelivery />
     </section>
