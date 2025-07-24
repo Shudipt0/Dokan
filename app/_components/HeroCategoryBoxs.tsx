@@ -10,7 +10,6 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { TfiHeadphone } from "react-icons/tfi";
 import { FaMotorcycle } from "react-icons/fa6";
 
-
 const categoryBoxItems = [
   {
     id: 1,
@@ -19,10 +18,30 @@ const categoryBoxItems = [
     link: "/category/smartphones",
   },
   { id: 2, icon: <FaComputer />, name: "computers", link: "/category/laptops" },
-  { id: 3, icon: <BsSmartwatch />, name: "SmartWatch",link: "/category/mens-watches" },
-  { id: 4, icon: <MdOutlineLocalGroceryStore />, name: "Groceries", link: "/category/groceries" },
-  { id: 5, icon: <TfiHeadphone />, name: "Mobile Accessories", link: "/category/mobile-accessories" },
-  { id: 6, icon: <FaMotorcycle />, name: "Motorcycle", link: "/category/motorcycle" },
+  {
+    id: 3,
+    icon: <BsSmartwatch />,
+    name: "SmartWatch",
+    link: "/category/mens-watches",
+  },
+  {
+    id: 4,
+    icon: <MdOutlineLocalGroceryStore />,
+    name: "Groceries",
+    link: "/category/groceries",
+  },
+  {
+    id: 5,
+    icon: <TfiHeadphone />,
+    name: "Mobile Accessories",
+    link: "/category/mobile-accessories",
+  },
+  {
+    id: 6,
+    icon: <FaMotorcycle />,
+    name: "Motorcycle",
+    link: "/category/motorcycle",
+  },
   { id: 7, icon: <HiOutlineDevicePhoneMobile />, name: "phones", link: "#" },
   { id: 8, icon: <FaComputer />, name: "phones", link: "#" },
 ];
@@ -43,8 +62,8 @@ const HeroCategoryBoxs = () => {
     },
   };
   return (
-    <section className="py-24 border-b border-gray-300">
-      <div className=" relative w-full md:h-[314px] flex flex-col justify-between">
+    <section className="py-12 md:py-24 md:border-b border-gray-300">
+      <div className="hidden relative w-full md:h-[314px] md:flex flex-col justify-between">
         <HeroHeadLine thumb={"Categories"} title={"Browse By Category"} />
         {/* carousel section */}
         <Carousel
@@ -54,11 +73,19 @@ const HeroCategoryBoxs = () => {
           arrows={false}
           customButtonGroup={<ButtonGroup />}
           renderButtonGroupOutside={true}
+          className="hidden pt-3 md:pt-0"
         >
           {categoryBoxItems.map((item) => (
             <CategoryBox key={item.id} item={item} />
           ))}
         </Carousel>
+      </div>
+
+      {/* mobile version */}
+      <div className="md:hidden grid grid-cols-3 gap-2 ">
+        {categoryBoxItems.map((item) => (
+          <CategoryBox key={item.id} item={item} />
+        ))}
       </div>
     </section>
   );
@@ -71,7 +98,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
     carouselState: { currentSlide },
   } = rest;
   return (
-    <div className="carousel-button-group absolute md:top-16 md:right-6 md:space-x-3 ">
+    <div className="carousel-button-group hidden md:block absolute md:top-16 md:right-6 md:space-x-3 ">
       <button
         className={`text-black p-3 rounded-full bg-gray-100  hover:bg-gray-200 cursor-pointer ${
           currentSlide === 0 ? "disable" : ""

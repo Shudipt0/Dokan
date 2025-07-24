@@ -13,16 +13,16 @@ const HeroSelling = () => {
     refetchOnWindowFocus: false,
   })
   return (
-    <section className="py-24">
-      <div className=" relative w-full md:h-[495px] flex flex-col justify-between gap-16">
+    <section className="pb-12 md:py-24">
+      <div className=" relative w-full md:h-[495px] flex flex-col justify-between gap-8 md:gap-16">
         <HeroHeadLine thumb={"This Month"} title={"Best Selling Products"} />
         {/* product card */}
-        <div className="w-full flex justify-between ">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 md:gap-28 ">
              {data?.map((item: any) => (
           <ProductCard key={item.id} item={item} />
         ))}
         </div>
-        <button className=" md:w-[160px] md:h-14 absolute md:top-12 md:right-0 text-white text-[16px] font-semibold bg-[#DB4444] rounded flex items-center justify-center ">
+        <button className="w-16 h-6 md:w-[160px] md:h-14 absolute top-9 md:top-12 right-0 text-white text-[10px] md:text-[16px] font-semibold bg-[#DB4444] rounded flex items-center justify-center ">
           <Link href="/shop">View All</Link>
         </button>
       </div>

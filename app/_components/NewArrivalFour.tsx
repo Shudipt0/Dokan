@@ -5,7 +5,7 @@ import newItemFour from '../../public/newItemFour.png'
 
 const NewArrivalFour = () => {
   return (
-    <Link href='/fragrances' className="md:w-[270px] md:h-[284px] relative bg-black/90 flex justify-center items-center">
+    <Link href='/fragrances' className="md:w-[270px] md:h-[284px] relative bg-black/90 flex justify-center items-center -top-3 md:top-0">
       <Image
         src={newItemFour}
         alt="category banner"
@@ -13,15 +13,15 @@ const NewArrivalFour = () => {
         width={190}
         height={220}
       />
-      <div className="absolute bottom-8 left-8 space-y-1">
-        <p className=" text-[26px] font-semibold text-white ">
+      <div className="absolute bottom-2 left-2 md:bottom-8 md:left-8 md:space-y-1">
+        <p className="text-[12px] md:text-[26px] font-semibold text-white ">
          Perfume
         </p>
-        <h1 className=" md:w-[220px] md:text-[12px] font-normal text-white ">
+        <h1 className=" md:w-[220px] text-[8px] md:text-[12px] font-normal text-white ">
          GUCCI INTENSE OUD EDP
         </h1>
         
-      <button className='text-white text-[16px] font-semibold underline underline-offset-4  '>Shop Now!</button>
+      <button className='text-white text-[8px] md:text-[16px] font-semibold underline underline-offset-4  '>Shop Now!</button>
     
       </div>
     </Link>

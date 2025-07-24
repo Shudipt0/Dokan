@@ -16,7 +16,7 @@ const HeroAllProducts = () => {
   });
   // console.log(data?.products)
   return (
-    <section className="w-full  flex flex-col items-center justify-center md:gap-20 md:py-20">
+    <section className="w-full flex flex-col items-center justify-center gap-10 md:gap-20 py-10 md:py-20">
       <HeroProductPagination products={data?.products} totalPages={data?.totalPages ?? 1} currentPage={pageNumber} setPageNumber={setPageNumber} />
       <ProductButton goTo="/shop" />
     </section>

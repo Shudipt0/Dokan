@@ -21,16 +21,16 @@ const HeroProductPagination = ({
 }: Props) => {
   // console.log(products);
   return (
-    <section className=" relative w-full flex flex-col justify-between gap-16">
+    <section className=" relative w-full flex flex-col justify-between gap-8 md:gap-16">
       <HeroHeadLine thumb={"Our Products"} title={"Explore Our Products"} />
       {/* product pagination */}
-      <div className=" w-full grid md:grid-cols-4 justify-items-center md:gap-22 ">
+      <div className=" w-full grid grid-cols-2 md:grid-cols-4 justify-items-center space-y-2 md:space-y-0 md:gap-22 ">
         {products?.map((item: Products) => (
           <ProductCard key={item.id} item={item} />
         ))}
       </div>
 
-      <div className="absolute flex gap-4 md:top-16 md:right-0">
+      <div className="hidden absolute md:flex gap-4 md:top-16 md:right-0">
         <button
           onClick={(e) => {
             e.preventDefault();

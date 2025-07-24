@@ -15,15 +15,15 @@ const NewArrivalTwo = () => {
         width={570}
         height={284}
       />
-      <div className="absolute bottom-8 left-8 space-y-2">
-        <p className=" text-[26px] font-semibold text-white ">
+      <div className="absolute bottom-2 left-2 md:bottom-8 md:left-8 md:space-y-2">
+        <p className="text-[12px] md:text-[26px] font-semibold text-white ">
           Women’s Collections
         </p>
-        <h1 className=" md:w-[220px] md:text-[12px] font-normal text-white ">
+        <h1 className=" md:w-[220px] text-[8px] md:text-[12px] font-normal text-white ">
           Featured woman collections that give you another vibe.
         </h1>
 
-        <button className="text-white text-[16px] font-semibold underline underline-offset-4 cursor-pointer ">
+        <button className="text-white text-[10px] md:text-[16px] font-semibold underline underline-offset-4 cursor-pointer ">
           Shop Now!
         </button>
       </div>
