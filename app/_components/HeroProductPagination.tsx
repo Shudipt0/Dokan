@@ -24,7 +24,7 @@ const HeroProductPagination = ({
     <section className=" relative w-full flex flex-col justify-between gap-8 md:gap-16">
       <HeroHeadLine thumb={"Our Products"} title={"Explore Our Products"} />
       {/* product pagination */}
-      <div className=" w-full grid grid-cols-2 md:grid-cols-4 justify-items-center space-y-2 md:space-y-0 md:gap-22 ">
+      <div className=" w-full grid grid-cols-2 md:grid-cols-4 justify-items-center gap-2 md:gap-22 ">
         {products?.map((item: Products) => (
           <ProductCard key={item.id} item={item} />
         ))}

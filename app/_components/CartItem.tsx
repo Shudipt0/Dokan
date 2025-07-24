@@ -21,19 +21,19 @@ const CartItem = ({items } : Props) => {
   return (
     <>
     {items?.map((item : any)=> (
-      <div key={item.id} className="w-full md:h-[90px] flex items-center justify-between shadow rounded px-12 bg-white group">
-      <div className="relative  md:w-1/4 flex items-center gap-4 ">
-        <Image src={item?.images[0]} alt="cart image" width={20} height={20} className="w-20 h-20" />
-        <p className="text-sm font-semibold text-black/80">{item.title}</p>
-        <button onClick={() => handleRemove(item)} className="absolute opacity-0 group-hover:opacity-100 duration-200 cursor-pointer -top-1 -left-1 text-[16px] text-[#DB2222]"><FaTimesCircle /></button>
+      <div key={item.id} className="w-full md:h-[90px] flex items-center justify-between shadow rounded px-2 md:px-12 bg-white group">
+      <div className="relative w-1/4 flex flex-col md:flex-row items-center gap-0 md:gap-4 ">
+        <Image src={item?.images[0]} alt="cart image" width={60} height={60} className="" />
+        <p className="text-[12px] md:text-sm font-semibold text-black/80">{item.title}</p>
+        <button onClick={() => handleRemove(item)} className="absolute md:opacity-0 md:group-hover:opacity-100 duration-200 cursor-pointer -top-1 -left-1 text-sm md:text-[16px] text-[#DB2222]"><FaTimesCircle /></button>
       </div>
-      <p className="md:w-1/4 text-sm font-semibold text-black/80">${item.price}</p>
+      <p className="w-1/4 text-[12px] md:text-sm font-semibold text-black/80">${item.price}</p>
 
-      <div className="md:w-1/4">
+      <div className="w-1/4">
         <CartInDeButton item={item} />
       </div>
 
-      <p className=" text-sm font-semibold text-black/80 mr-5">{item.quantity * item.price}</p>
+      <p className=" text-[12px] md:text-sm font-semibold text-black/80 md:mr-5">{item.quantity * item.price}</p>
     </div>
     ))}
     </>

@@ -17,7 +17,7 @@ const HeroSelling = () => {
       <div className=" relative w-full md:h-[495px] flex flex-col justify-between gap-8 md:gap-16">
         <HeroHeadLine thumb={"This Month"} title={"Best Selling Products"} />
         {/* product card */}
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 md:gap-28 ">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-28 ">
              {data?.map((item: any) => (
           <ProductCard key={item.id} item={item} />
         ))}

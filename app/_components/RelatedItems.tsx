@@ -48,11 +48,11 @@ const RelatedItems = ({ category }: Props) => {
   if (isPending) return <div>Loading...</div>;
 if (isError) return <div>Error: {error.message}</div>;
   return (
-    <section className="w-full md:h-[750px] flex flex-col items-center justify-center md:gap-20 ">
+    <section className="w-full h-[450px] md:h-[750px] flex flex-col items-center justify-center gap-10 md:gap-20 ">
       <div className=" relative w-full md:h-[495px] flex flex-col justify-between">
         <HeroHeadLine thumb={`Related`} title={"Items"} />
         {/* carousel section */}
-        <div className="">
+        <div className="pt-4">
           {Array.isArray(reletedProducts) && reletedProducts.length > 0 && (
             <Carousel
               responsive={responsive}
@@ -82,7 +82,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
     carouselState: { currentSlide },
   } = rest;
   return (
-    <div className="carousel-button-group absolute md:top-16 md:right-6 md:space-x-3 ">
+    <div className="carousel-button-group hidden md:block absolute md:top-16 md:right-6 md:space-x-3 ">
       <button
         className={`text-black p-3 rounded-full bg-gray-100  hover:bg-gray-200 cursor-pointer ${
           currentSlide === 0 ? "disable" : ""

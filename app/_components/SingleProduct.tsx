@@ -6,7 +6,7 @@ import SingleProductDetails from './SingleProductDetails'
 const SingleProduct = ({data}: any) => {
 
   return (
-    <div className='w-full flex justify-center gap-10 '>
+    <div className='w-full flex flex-col md:flex-row justify-center gap-10 '>
         {/* image section */}
         <SingleProductImage product={data} />
         {/* deatils section */}

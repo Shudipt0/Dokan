@@ -25,7 +25,7 @@ const SingleProductPage = async ({ id }: { id: string }) => {
   const data = await fetchProduct(id);
   // console.log(data)
   return (
-    <div className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
+    <div className="container mx-auto px-2 md:px-14 pb-10 md:py-20 bg-white">
       <SingleProduct data={data}/>
       <RelatedItems category={data?.category} />
 

@@ -34,7 +34,7 @@ const ShopProductPage = () => {
     <section className="container mx-auto px-2 md:px-14 space-x-3 bg-white md:flex justify-between md:py-20">
       {/* products section */}
       <div className="w-full flex flex-col justify-center gap-20">
-        <div className="md:w-full grid grid-cols-4 gap-6 justify-items-center space-y-6">
+        <div className="md:w-full grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 justify-items-center space-y-6">
           {data?.products?.map((item: Products) => (
             <ProductCard key={item.id} item={item} />
           ))}

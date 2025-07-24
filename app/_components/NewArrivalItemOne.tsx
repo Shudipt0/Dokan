@@ -4,7 +4,7 @@ import newItemOne from '../../public/newItemOne.png'
 
 const NewArrivalItemOne = () => {
   return (
-    <Link href='#' className="h-[196px] md:w-[570px] md:h-[600px] relative bg-black/90 flex justify-center items-end">
+    <Link href='#' className="h-[190px] md:w-[570px] md:h-[600px] relative bg-black/90 flex justify-center items-end">
       <Image
         src={newItemOne}
         alt="category banner"

@@ -12,14 +12,14 @@ const SingleProductImage = ({product}: Item) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   // console.log(product?.images)
   return (
-    <div className=" md:w-[700px] md:h-[600px] flex gap-8">
+    <div className="w-full md:w-[700px] md:h-[600px] flex flex-col-reverse md:flex-row gap-4 md:gap-8">
       {/* vertical thumbnail */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-row md:flex-col gap-4">
         {product?.images?.map((image: string, index: number) => (
           <div
             key={image}
             onClick={() => setSelectedIndex(index)}
-            className={`w-20 h-20 overflow-hidden rounded border cursor-pointer ${
+            className={`w-12 h-12 md:w-20 md:h-20 overflow-hidden rounded border cursor-pointer ${
               selectedIndex === index ? " border-[#DB4444]" : "border-gray-300"
             } `}
           >
@@ -35,7 +35,7 @@ const SingleProductImage = ({product}: Item) => {
       </div>
 
       {/* main carousel */}
-      <div className="w-[500px] h-[600px] overflow-hidden">
+      <div className="w-full h-[300px] md:w-[500px] md:h-[600px] overflow-hidden">
         <Carousel
           selectedItem={selectedIndex}
           onChange={setSelectedIndex}
@@ -46,13 +46,13 @@ const SingleProductImage = ({product}: Item) => {
           showIndicators={false}
         >
           {product?.images?.map((image: string) => (
-            <div key={product.id} className="w-[500px] h-[600px] ">
+            <div key={product.id} className=" ">
               <Image
                 src={image}
                 alt={`Product image `}
                 width={300}
                 height={300}
-                className="object-contain w-full h-full"
+                className="object-contain "
               />
             </div>
           ))}
