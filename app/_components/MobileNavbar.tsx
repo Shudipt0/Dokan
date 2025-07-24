@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useToggleMenu } from "@/context/NavbarToggleContext";
 import SearchMain from "./SearchMain";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
+import SearchRaise from "./SearchRaise";
 
 const MobileNavbar = ({
   NavItem,
@@ -12,6 +15,7 @@ const MobileNavbar = ({
   NavItem: { label: string; link: string }[];
 }) => {
   const { mobileMenuOpen, setMobileMenuOpen } = useToggleMenu();
+  // const [isActive, setIsActive] = useState();
 
   // disable modal when scroll attempts
   useEffect(() => {
@@ -33,36 +37,46 @@ const MobileNavbar = ({
     };
   }, [mobileMenuOpen]);
 
-  return (
-    <div className="">
-      <div className="w-full px-6 h-12 flex items-center justify-between md:hidden">
-        {/* logo */}
-        <div>
-          <Link href="/" className="text-md font-bold">
-            Exclusive
-          </Link>
-        </div>
-        {/* buttons */}
-        <div className="flex items-center gap-4">
-          {/* search input and cart */}
-          <SearchMain />
-          {/* menu toggle button */}
+  // active link
+  const pathName = usePathname();
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="cursor-pointer w-8 flex items-center justify-center "
-          >
-            {mobileMenuOpen ? (
-              <FaTimes size={20} />
-            ) : (
-              <FaBarsStaggered size={20} />
-            )}
-          </button>
+  return (
+    <section className=" container mx-auto">
+      <div className="w-full px-3">
+        <div className=" flex items-center justify-between py-2 md:hidden">
+          {/* logo */}
+          <div>
+            <Link href="/" className="text-md font-bold">
+              Dokan
+            </Link>
+          </div>
+          {/* buttons */}
+          <div className="flex items-center gap-4">
+            {/* search input and cart */}
+            <SearchMain />
+            {/* menu toggle button */}
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="cursor-pointer w-8 flex items-center justify-center "
+            >
+              {mobileMenuOpen ? (
+                <FaTimes size={20} />
+              ) : (
+                <FaBarsStaggered size={20} />
+              )}
+            </button>
+          </div>
+        </div>
+        {/* search field */}
+        <div className=" w-full pb-2 md:hidden">
+          <SearchRaise />
         </div>
       </div>
+
       {/* mobile menu items */}
       <div
-        className={`fixed left-0 bg-white z-50 w-[50%] h-screen p-8 shadow-md md:hidden transform transition-all ease-in-out duration-300 ${
+        className={`fixed left-0 top-[106px] bg-white z-50 w-[50%] h-screen p-8 shadow-md md:hidden transform transition-all ease-in-out duration-300 ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         } `}
       >
@@ -70,14 +84,44 @@ const MobileNavbar = ({
           {NavItem.map((item, index) => (
             <li
               key={index}
-              className="w-full px-5 py-3 rounded-sm hover:bg-gray-100"
+              className={`w-full px-5 py-2 rounded-sm hover:bg-gray-100 ${
+                pathName === item.link ? "bg-gray-100" : ""
+              }`}
             >
-              <Link href={item.link}>{item.label}</Link>
+              <Link href={item.link} onClick={() => setMobileMenuOpen(false)}>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
+        {/* authentication */}
+        <div className="flex flex-col gap-2 pt-2 justify-start items-start px-5 ">
+          <SignedOut>
+            <button
+              className={`${
+                pathName === "/login"
+                  ? "text-black underline underline-offset-6"
+                  : "text-gray-500 hover:text-black"
+              } text-[14px] font-semibold`}
+            >
+              <Link href="/login">Log In</Link>
+            </button>
+            <button
+              className={`${
+                pathName === "/signup"
+                  ? "text-black underline underline-offset-6"
+                  : "text-gray-500 hover:text-black"
+              } text-[14px] font-semibold`}
+            >
+              <Link href="/signup">Sign Up</Link>
+            </button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

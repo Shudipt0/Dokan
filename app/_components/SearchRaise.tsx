@@ -52,9 +52,9 @@ const SearchRaise = () => {
   return (
     <div className="relative">
       <div
-        className={`w-8 ${
+        className={`w-full ${
           searchBar ? "md:w-[500px]" : "md:w-[250px]"
-        } h-9 flex items-center justify-center md:justify-between bg-gray-100 rounded text-black/80 px-4 z-20 cursor-pointer ease-in-out duration-200 `}
+        } h-9 flex items-center justify-center md:justify-between bg-gray-100 rounded text-black/80 px-2 md:px-4 z-20 cursor-pointer ease-in-out duration-200 `}
       >
         <input
           type="text"
@@ -64,7 +64,7 @@ const SearchRaise = () => {
           placeholder="What are you looking for?"
           className={`w-full ${
             searchBar ? "md:w-[450px]" : "md:w-[200px]"
-          } border p-1 text-[14px] text-black border-none outline-none cursor-pointer`}
+          } border p-1 text-sm md:text-[14px] text-black border-none outline-none cursor-pointer`}
           //   disabled={!searchBar}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -84,7 +84,7 @@ const SearchRaise = () => {
 
       {/* search results */}
       {(query || showResults) && (
-        <ul className="absolute -bottom-[360px] w-full md:w-[500px] md:h-[360px] overflow-hidden z-20">
+        <ul className="absolute md:-bottom-[360px] w-full md:w-[500px] h-[360px] overflow-hidden z-20">
           {data && data?.length > 0 ? (
             data?.map((item: any) => (
               <li key={item.id} onClick={() => setShowResults(false)}>

@@ -5,7 +5,7 @@ import Image from "next/legacy/image";
 
 const HeroCarousel = () => {
   return (
-    <div className=" w-full md:h-96 md:flex justify-end items-end">
+    <div className="hidden w-full md:h-96 md:flex justify-end items-end">
       <Carousel
       autoPlay={true}
       showArrows={false}

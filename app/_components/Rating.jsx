@@ -8,12 +8,12 @@ const Rating = ({ rating }) => {
     return (
       <span key={index}>
            {rating >= index + 1 ? (
-            <FaStar className="text-yellow-500" />
+            <FaStar className="text-[10px] md:text-[16px] text-yellow-500" />
            ) : rating >= starValue ? (
-            <FaStarHalf className="text-yellow-500" />
+            <FaStarHalf className="text-[10px] md:text-[16px] text-yellow-500" />
 
            ) : (
-            <FaStar className="text-gray-400" />
+            <FaStar className="text-[10px] md:text-[16px] text-gray-400" />
            ) }
       </span>
     )

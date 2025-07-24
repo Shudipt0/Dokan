@@ -14,7 +14,7 @@ const HeroFlashsale = () => {
   })
   // console.log(data)
   return (
-    <div className="w-full md:h-[750px] flex flex-col items-center justify-center md:gap-20 md:mt-16 border-b border-gray-300">
+    <div className="w-full md:h-[750px] flex flex-col items-center justify-center gap-8 mt-8 md:gap-20 md:mt-16 md:border-b border-gray-300">
       <FlashsaleCarouselWrapper data={data} />
       <ProductButton goTo="/shop" />
     </div>

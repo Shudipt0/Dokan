@@ -36,7 +36,9 @@ const SearchMain = () => {
 
   return (
     <div className="flex items-center gap-3  md:gap-6">
+      <div className=" hidden md:block">
       <SearchRaise/>
+      </div>
       {/* <button
         onClick={handleSearchModal}
         className="w-8 md:w-[250px] h-9 flex items-center justify-center md:justify-between bg-gray-100 rounded text-black/80 px-4 z-20 cursor-pointer"
@@ -50,7 +52,7 @@ const SearchMain = () => {
         </span>
       </button> */}
       <Link
-        href="#"
+        href="/wishlist"
         className={`relative ${
           pathName === "/signup" || pathName === "/login" ? "hidden" : ""
         }`}

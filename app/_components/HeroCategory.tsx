@@ -15,13 +15,13 @@ interface HeroCategoryProps {
 const HeroCategory = ({ categories }: HeroCategoryProps) => {
   //  console.log(category)
   return (
-    <div className="md:w-[350px] md:h-96 border-r border-gray-300 flex items-end">
-      <div className="w-[90%] h-[344px] flex flex-col space-y-3 overflow-auto scrollbar-hide">
+    <div className="w-full h-fit py-5 md:py-0 md:w-[350px] md:h-96 md:border-r border-gray-300 md:flex md:items-end">
+      <div className="w-full h-fit md:w-[90%] md:h-[344px] flex flex-wrap gap-3 md:flex-col md:flex-nowrap md:gap-3 overflow-auto scrollbar-hide">
         {categories?.map((list, index) => (
           <Link
             key={index}
             href={`category/${list.slug}`}
-            className="md:text-[18px] text-black/80 font-mono"
+            className="text-[14px] md:text-[18px] text-black/80 font-mono underline md:no-underline"
           >
             {list.name}
           </Link>

@@ -20,7 +20,7 @@ const ProductCard = ({ item }: ProductCardProps) => {
   return (
     <Link
       href={`/shop/${item?.id}`}
-      className=" group md:w-[270px] md:h-[350px] flex flex-col justify-between "
+      className=" group w-[175px] md:w-[270px] h-[270px] md:h-[350px] flex flex-col justify-between "
     >
       {/* image part */}
       <div className="relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm">
@@ -34,10 +34,10 @@ const ProductCard = ({ item }: ProductCardProps) => {
           />
         </div>
         {/* floating items */}
-        <button className="absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer">
+        <button className="absolute bottom-0 w-full md:h-10 text-[10px] md:text-[12px] text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer">
           Add To Cart
         </button>
-        <button className="absolute md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[12px] text-white rounded ">
+        <button className="absolute w-8 h-4 md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[8px] md:text-sm text-white rounded ">
           -{discountRate}%
         </button>
         <div className=" absolute top-4 right-4 text-black space-y-2">
@@ -50,15 +50,15 @@ const ProductCard = ({ item }: ProductCardProps) => {
         </div>
       </div>
       {/* text part */}
-      <div className="space-y-2">
-        <h2 className="text-[16px] text-black font-semibold">{item?.title}</h2>
-        <p className="text-[14px] text-red-500 font-semibold ">
+      <div className=" md:space-y-2">
+        <h2 className="text-sm md:text-[16px] text-black font-semibold">{item?.title}</h2>
+        <p className="text-[12px] md:text-[14px] text-red-500 font-semibold ">
           ${item?.price}{" "}
           <span className="text-gray-500 line-through">${originalPrice}</span>
         </p>
         <div className="flex items-center gap-3">
           <Rating rating={item?.rating} />
-          <span className="text-black/60"> ({item?.reviews?.length})</span>
+          <span className="text-black/60 text-[10px] md:text-[16px]"> ({item?.reviews?.length})</span>
         </div>
       </div>
     </Link>
