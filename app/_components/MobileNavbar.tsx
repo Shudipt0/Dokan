@@ -104,7 +104,7 @@ const MobileNavbar = ({
                   : "text-gray-500 hover:text-black"
               } text-[14px] font-semibold`}
             >
-              <Link href="/login">Log In</Link>
+              <Link href="/login" onClick={() => setMobileMenuOpen(false)}>Log In</Link>
             </button>
             <button
               className={`${
@@ -113,7 +113,7 @@ const MobileNavbar = ({
                   : "text-gray-500 hover:text-black"
               } text-[14px] font-semibold`}
             >
-              <Link href="/signup">Sign Up</Link>
+              <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>Sign Up</Link>
             </button>
           </SignedOut>
           <SignedIn>
