@@ -3,6 +3,7 @@ import Image from "next/legacy/image";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { removeFromWishlist } from "../redux/wishlistSlice/wishlistSlice";
+import Link from "next/link";
 
 interface WishListProps {
   item: any; // Replace 'any' with a specific type for your product if available
@@ -24,7 +25,7 @@ const WishlistCart = ({ item }: WishListProps) => {
     dispatch(removeFromWishlist(item));
   };
   return (
-    <div className=" group md:w-[270px] md:h-[310px] flex flex-col justify-between ">
+    <Link href={`/shop/${item?.id}`} className=" group md:w-[270px] md:h-[310px] flex flex-col justify-between ">
       {/* image part */}
       <div className="relative w-full md:h-[250px] bg-gray-100 flex flex-col items-center justify-center rounded-t-sm">
         <div className="md:w-[190px] md:h-[180px]">
@@ -32,14 +33,14 @@ const WishlistCart = ({ item }: WishListProps) => {
             src={item?.images[0]}
             alt={`Product image ${item?.images[0]?.id}`}
             width={190}
-            height={180}
+            height={190}
           />
         </div>
         {/* floating items */}
-        <button className="absolute bottom-0 w-full md:h-10 text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer">
+        <button className="absolute bottom-0 w-full md:h-10 text-[10px] md:text-sm text-white bg-black font-medium rounded-b opacity-0 group-hover:opacity-100 duration-200 cursor-pointer">
           Add To Cart
         </button>
-        <button className="absolute md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[12px] text-white rounded ">
+        <button className="absolute w-8 h-4 md:w-12 md:h-6 top-4 left-4 bg-[#DB4444] text-[12px] text-white rounded ">
           -{discountRate}%
         </button>
         <div className=" absolute top-4 right-4 text-black space-y-2">
@@ -52,14 +53,14 @@ const WishlistCart = ({ item }: WishListProps) => {
         </div>
       </div>
       {/* text part */}
-      <div className="space-y-2">
-        <h2 className="text-[16px] text-black font-semibold">{item?.title}</h2>
-        <p className="text-[14px] text-red-500 font-semibold ">
+      <div className="md:space-y-2">
+        <h2 className="text-sm md:text-[16px] text-black font-semibold">{item?.title}</h2>
+        <p className="text-[12px] md:text-[14px] text-red-500 font-semibold ">
           ${item?.price}{" "}
           <span className="text-gray-500 line-through">${originalPrice}</span>
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

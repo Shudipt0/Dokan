@@ -92,15 +92,15 @@ const SearchProducts = ({ slug }: { slug: string }) => {
       );
     };
   return (
-    <div className="container min-h-[500px] mx-auto px-2 md:px-14 md:py-20 bg-white md:flex justify-between gap-3">
+    <div className="container min-h-[500px] mx-auto px-2 md:px-14 md:py-10 bg-white md:flex justify-between gap-3 md:pt-10 md:pb-20">
         {/* filtering */}
-      <div className=" md:w-[280px] space-y-4">
+      <div className=" md:w-[280px] space-y-4 md:space-y-8">
         {/* ------------ */}
-        <h1 className="text-2xl text-black/80 font-bold mb-6">Search Results for "{slug}"</h1>
+        <h1 className="text-[16px] md:text-2xl text-black/80 font-bold mb-4 md:mb-6">Search Results for "{slug}"</h1>
 
         <div>
           <h4 className="font-semibold mb-2">Filter by Price</h4>
-          <div className="text-sm mb-2">
+          <div className="text-[12px] md:text-sm mb-2">
             ${priceRange[0]} — ${priceRange[1]}
           </div>
           <Range
@@ -118,7 +118,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
                   background: "#e5e7eb",
                   borderRadius: "4px",
                 }}
-                className="w-[90%] ml-2"
+                className="w-[95%] md:w-[90%] mx-auto md:ml-2"
               >
                 {children}
               </div>
@@ -146,7 +146,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
         <div>
           <h4 className="font-semibold mb-2">Filter by Brand</h4>
           {brands.map((brand: any, index) => (
-            <label key={index} className="block text-sm">
+            <label key={index} className="block text-[12px] md:text-sm">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -161,7 +161,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
         <div>
           <h4 className="font-semibold mb-2">Filter by Rating</h4>
           {ratings.map((rating: any) => (
-            <label key={rating} className="block text-sm">
+            <label key={rating} className="block text-[12px] md:text-sm">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -174,7 +174,7 @@ const SearchProducts = ({ slug }: { slug: string }) => {
         </div>
       </div>
       
-      <div className="md:w-full grid grid-cols-4 gap-6 space-y-6">
+      <div className=" md:w-full grid grid-cols-2 md:grid-cols-4 justify-items-end gap-3 py-10 md:py-0">
          {filteredProducts.length ? (
           filteredProducts.map((item: Product) => (
             <ProductCard key={item.id} item={item} />

@@ -12,10 +12,10 @@ const TotalCart = ({total} : Props) => {
         <input
           type="text"
           placeholder="Coupon Code"
-          className="w-52 h-8 md:w-[260px] md:h-[56px] text-sm md:text-[16px] text-black/70 font-semibold border border-gray-400 px-8 py-2 outline-none rounded"
+          className="w-52 h-8 md:w-[260px] md:h-[56px] text-[12px] md:text-[16px] text-black/70 font-semibold border border-gray-400 px-8 py-2 outline-none rounded"
         />
-        <button className="w-36 h-8 md:w-[218px] md:h-[56px] flex items-center justify-center rounded text-sm md:text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] text-white ">
-          Update Cart
+        <button className="w-32 h-8 md:w-[218px] md:h-[56px] flex items-center justify-center rounded text-sm md:text-[16px] font-semibold bg-[#DB4444] hover:bg-[#DB2222] text-white ">
+          Apply Coupon
         </button>
       </div>
       {/* total section */}

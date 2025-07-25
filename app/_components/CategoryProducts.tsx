@@ -1,9 +1,9 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
-import ProductCardTwo from "@/app/_components/ProductCardTwo";
 import { fetchCategoryItem } from "@/app/api/Api";
 import { Range } from "react-range";
+import ProductCard from "./ProductCard";
 
 interface Product {
   id: string ;
@@ -89,13 +89,13 @@ const CategoryProducts = ({ slug }: { slug?: string }) => {
   };
 
   return (
-    <section className="container min-h-[500px] mx-auto px-2 md:px-14 bg-white md:flex justify-between gap-3 md:py-20">
+    <section className="container min-h-[500px] mx-auto px-2 md:px-14 bg-white md:flex items-start justify-between md:pt-10 md:pb-20">
       {/* filtering */}
-      <div className=" md:w-[280px] space-y-8">
+      <div className=" md:w-[280px] space-y-4 md:space-y-8">
         {/* ------------ */}
         <div>
           <h4 className="font-semibold mb-2">Filter by Price</h4>
-          <div className="text-sm mb-2 cursor-pointer">
+          <div className="text-[12px] md:text-sm mb-2 cursor-pointer">
             ${priceRange[0]} — ${priceRange[1]}
           </div>
           <Range
@@ -113,7 +113,7 @@ const CategoryProducts = ({ slug }: { slug?: string }) => {
                   background: "#e5e7eb",
                   borderRadius: "4px",
                 }}
-                className="w-[90%] ml-2"
+                className="w-[95%] md:w-[90%] mx-auto md:ml-2"
               >
                 {children}
               </div>
@@ -141,7 +141,7 @@ const CategoryProducts = ({ slug }: { slug?: string }) => {
         <div className="space-y-2">
           <h4 className="font-semibold mb-2">Filter by Brand</h4>
           {brands.map((brand: any, index) => (
-            <label key={index} className="block text-sm cursor-pointer">
+            <label key={index} className="block text-[12px] md:text-sm cursor-pointer">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -157,7 +157,7 @@ const CategoryProducts = ({ slug }: { slug?: string }) => {
         <div className="space-y-2">
           <h4 className="font-semibold mb-2">Filter by Rating</h4>
           {ratings.map((rating: any) => (
-            <label key={rating} className="block text-sm cursor-pointer">
+            <label key={rating} className="block text-[12px] md:text-sm cursor-pointer">
               <input
                 type="checkbox"
                 className="mr-2"
@@ -171,10 +171,10 @@ const CategoryProducts = ({ slug }: { slug?: string }) => {
       </div>
 
       {/* products section */}
-      <div className=" md:w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-end gap-3">
+      <div className=" md:w-full grid grid-cols-2 md:grid-cols-4 justify-items-end gap-3 py-10 md:py-0">
         {filteredProducts.length ? (
           filteredProducts.map((item: Product) => (
-            <ProductCardTwo key={item.id} item={item} />
+            <ProductCard key={item.id} item={item} />
           ))
         ) : (
           <p>No products match selected filters.</p>

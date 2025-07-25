@@ -10,10 +10,10 @@ const BreadCrumbs = () => {
   let breadcrumbPath = "";
   return (
     <div className={`container mx-auto px-2 md:px-14 bg-white`}>
-      <div className={` ${pathName === '/' ? 'h-0 py-0' : 'h-8 py-8'}  flex items-center gap-4`}>
+      <div className={` ${pathName === '/' ? 'h-0 py-0' : 'h-4 md:h-8 pt-4 pb-8'}  flex items-center gap-4`}>
         <Link
           href="/"
-          className={`${pathName === "/" ? "hidden" : "text-gray-400"}`}
+          className={`text-[10px] md:text-sm ${pathName === "/" ? "hidden" : "text-gray-400"}`}
         >
           Home
         </Link>
@@ -22,7 +22,7 @@ const BreadCrumbs = () => {
           return (
             <div
               key={index}
-              className={`${
+              className={`text-[10px] md:text-sm ${
                 index === pathParts.length - 1
                   ? " text-black capitalize "
                   : "text-gray-400"
