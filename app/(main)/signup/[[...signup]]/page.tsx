@@ -11,70 +11,70 @@ import { AnimatePresence } from "motion/react";
 
 const SignUpPage = () => {
   return (
-    <div className="container mx-auto px-2 md:px-14 md:py-20 bg-white">
+    <div className="container mx-auto px-6 pb-10 md:px-14 md:py-20 bg-white">
       <div className="w-full md:flex items-center justify-center gap-30">
-        <div>
+        <div className="hidden md:block">
           <Image src={sideImage} alt="sideimage" width={600} height={600} />
         </div>
 
-        <div className="md:w-[370px] md:h-[530px]  ">
+        <div className="w-full h-[350px] md:w-[370px] md:h-[530px]  ">
           <SignUp.Root>
             <SignUp.Step
               name="start"
               className="w-full h-full flex flex-col justify-between "
             >
-              <div className="space-y-4">
-                <h1 className="text-4xl text-black/90 font-semibold">
+              <div className="space-y-2 md:space-y-4">
+                <h1 className="text-2xl md:text-4xl text-black/90 font-semibold">
                   Create an account
                 </h1>
-                <p className="text-md text-black/80 font-semibold">
+                <p className="text-[12px] md:text-[16px] text-black/80 font-semibold">
                   Enter your details below
                 </p>
               </div>
 
               <Clerk.Field name="username" className="w-full ">
                 <Clerk.Label className="flex items-center relative">
-                  <Clerk.Input className="outline-none peer text-[18px] text-black/80 font-semibold duration-200 focus:bg-white " />
-                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white ">
+                  <Clerk.Input className="outline-none peer text-sm md:text-[18px] text-black/80 font-semibold duration-200 focus:bg-white " />
+                  <span className="absolute left-0 text-sm md:text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white ">
                     Name
                   </span>
                 </Clerk.Label>
                 <div className="w-full h-[1.5px] my-1 bg-gray-300 "></div>
-                <Clerk.FieldError className="text-sm text-red-500 " />
+                <Clerk.FieldError className="text-[12px] md:text-sm text-red-500 " />
               </Clerk.Field>
 
               <Clerk.Field name="emailAddress" className="w-full ">
                 <Clerk.Label className="flex items-center relative">
-                  <Clerk.Input className="outline-none peer text-[18px] text-black/80 font-semibold duration-200 " />
-                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white">
+                  <Clerk.Input className="outline-none peer text-sm md:text-[18px] text-black/80 font-semibold duration-200 " />
+                  <span className="absolute left-0 text-sm md:text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white">
                     Email
                   </span>
                 </Clerk.Label>
                 <div className="w-full h-[1.5px] my-1 bg-gray-300 "></div>
-                <Clerk.FieldError className="text-sm text-red-500 " />
+                <Clerk.FieldError className="text-[12px] md:text-sm text-red-500 " />
               </Clerk.Field>
 
               <Clerk.Field name="password" className="w-full ">
                 <Clerk.Label className="flex items-center relative">
-                  <Clerk.Input className="outline-none peer text-[18px] text-black/80 font-semibold duration-200 " />
-                  <span className="absolute left-0 text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white">
+                  <Clerk.Input className="outline-none peer text-sm md:text-[18px] text-black/80 font-semibold duration-200 " />
+                  <span className="absolute left-0 text-sm md:text-[18px] text-gray-400 peer-focus:text-sm peer-focus:-translate-y-5 duration-200 peer-user-valid:-translate-y-5  peer-valid:text-sm peer-valid:bg-white">
                     Password
                   </span>
                 </Clerk.Label>
                 <div className="w-full h-[1.5px] my-1 bg-gray-300 "></div>
-                <Clerk.FieldError className="text-sm text-red-500 " />
+                <Clerk.FieldError className="text-[12px] md:text-sm text-red-500 " />
               </Clerk.Field>
               <div className="space-y-5">
                 <SignUp.Action
                   submit
-                  className="w-full h-14 flex items-center justify-center text-md text-white bg-[#DB4444] hover:bg-[#DB5555] cursor-pointer rounded "
+                  className="w-full h-8 md:h-14 flex items-center justify-center text-sm md:text-[16px] text-white bg-[#DB4444] hover:bg-[#DB5555] cursor-pointer rounded "
                 >
                   Create Account
                 </SignUp.Action>
 
                 <Clerk.Connection
                   name="google"
-                  className="w-full h-14 flex items-center justify-center gap-3 border border-gray-700 text-md text-black/90 cursor-pointer rounded "
+                  className="w-full h-8 md:h-14 flex items-center justify-center gap-3 border border-gray-700 text-sm md:text-[16px] text-black/90 cursor-pointer rounded "
                 >
                   <span>
                     <FcGoogle size={24} />
@@ -84,10 +84,12 @@ const SignUpPage = () => {
               </div>
 
               <div className="w-full flex items-center justify-center gap-3">
-                <p className="text-md text-gray-600 ">Already have account?</p>
+                <p className="text-sm md:text-[16px] text-gray-600 ">
+                  Already have account?
+                </p>
                 <Link
                   href="login"
-                  className="text-md text-gray-700 underline underline-gray-400 underline-offset-6"
+                  className="text-sm md:text-[16px] text-gray-700 underline underline-gray-400 underline-offset-6"
                 >
                   Log in
                 </Link>
@@ -99,12 +101,12 @@ const SignUpPage = () => {
               className="w-full flex flex-col justify-center items-start gap-6 "
             >
               <SignUp.Strategy name="email_code">
-                <h1 className="text-4xl text-black/90 font-semibold">
+                <h1 className="text-2xl md: text-black/90 font-semibold">
                   Check your email
                 </h1>
 
                 <Clerk.Field name="code" className=" ">
-                  <Clerk.Label className="text-[20px] text-black/90 font-semibold">
+                  <Clerk.Label className="text-sm md:text-[20px] text-black/90 font-semibold">
                     Email Code
                   </Clerk.Label>
                   <Clerk.Input
@@ -147,7 +149,7 @@ const SignUpPage = () => {
 
                 <SignUp.Action
                   submit
-                  className="w-full h-14 flex items-center justify-center text-[20px] text-white bg-[#DB4444] hover:bg-[#DB5555] cursor-pointer rounded "
+                  className="w-full h-8 md:h-14 flex items-center justify-center text-sm md:text-[20px] text-white bg-[#DB4444] hover:bg-[#DB5555] cursor-pointer rounded "
                 >
                   Verify
                 </SignUp.Action>

@@ -44,26 +44,26 @@ const AboutNumberCard = () => {
   };
   console.log(isActive);
   return (
-    <div className="w-full flex items-center justify-between md:pt-30 ">
+    <div className="w-full flex flex-wrap items-center justify-between gap-2 pt-6 md:pt-30 ">
       {allItems.map((item) => (
         <button
           onClick={() => handleActive(item.id)}
           key={item.id}
-          className={`md:w-[270px] md:h-[230px] border border-gray-300 rounded cursor-pointer flex flex-col items-center justify-center gap-5 group  duration-200  ${
+          className={`w-[170px] h-38 md:w-[270px] md:h-[230px] border border-gray-300 rounded cursor-pointer flex flex-col items-center justify-center gap-2 md:gap-5 group  duration-200  ${
             isActive === item.id
               ? "bg-[#DB4444]"
               : "bg-white hover:bg-[#DB4444]"
           }`}
         >
           <div
-            className={`md:w-[80px] md:h-[80px] flex justify-center items-center  rounded-full ${
+            className={`w-14 h-14 md:w-[80px] md:h-[80px] flex justify-center items-center  rounded-full ${
               isActive === item.id
                 ? "bg-[#f39c9c]"
                 : "bg-gray-300 group-hover:bg-[#f39c9c]"
             } `}
           >
             <div
-              className={`md:text-[30px]  p-3 rounded-full ${
+              className={`text-sm md:text-[30px] p-3 rounded-full ${
                 isActive === item.id
                   ? "bg-white text-black "
                   : "bg-black text-white group-hover:bg-white group-hover:text-black"
@@ -74,7 +74,7 @@ const AboutNumberCard = () => {
           </div>
           <div className="text-center space-y-1">
             <h2
-              className={`text-[28px] font-bold  ${
+              className={`text-[16px] md:text-[28px] font-bold  ${
                 isActive === item.id
                   ? "text-white"
                   : "text-black/90 group-hover:text-white"
@@ -83,7 +83,7 @@ const AboutNumberCard = () => {
               {item.title}
             </h2>
             <p
-              className={`text-[12px] font-semibold  ${
+              className={`text-[10px] md:text-[12px] font-semibold  ${
                 isActive === item.id
                   ? "text-white"
                   : "text-black/90 group-hover:text-white"
