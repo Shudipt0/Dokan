@@ -17,9 +17,10 @@ const cartPage = () => {
   console.log(items, total)
   
   return (
-    <div className="container mx-auto px-3 md:px-14 bg-white pb-10 md:py-20 space-y-5 md:space-y-24">
+    <div className="container mx-auto px-3 md:px-14 bg-white pb-10 md:pb-20 space-y-5 md:space-y-24">
       {/* cart */}
-      <div className="w-full flex flex-col gap-5  ">
+      {items?.length > 0 ? (<>
+<div className="w-full flex flex-col gap-5  ">
         <div className="w-full h-12 md:h-[72px] flex items-center justify-between shadow rounded px-2 md:px-12">
           <p className="md:w-1/4 text-[12px] md:text-sm font-semibold text-black/80 ">
             Product
@@ -50,6 +51,14 @@ const cartPage = () => {
 
       {/* total cart */}
       <TotalCart total={total} />
+      </> ) : (
+        <div className="w-full min-h-64 md:min-h-[450px] flex items-center justify-center">
+          <h1 className="text-xl md:text-3xl font-semibold text-black/90  ">
+            Your Cart is Empty
+          </h1>
+        </div>
+      )}
+      
     </div>
   );
 };

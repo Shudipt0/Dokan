@@ -6,6 +6,7 @@ import { createOrder } from "../../actions/order/createOrder";
 import Link from "next/link";
 import { clearCart } from "../../redux/cartslice/cartSlice";
 import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 interface RootState {
   cart: {
@@ -26,6 +27,7 @@ useEffect(() => {
   if (state?.success) {
     dispatch(clearCart());
     toast.success("Order placed successfully!")
+    redirect('/');
     // setOrderSuccess(true);
   }
 }, [state]);

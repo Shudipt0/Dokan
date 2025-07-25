@@ -101,7 +101,7 @@ const SignUpPage = () => {
               className="w-full flex flex-col justify-center items-start gap-6 "
             >
               <SignUp.Strategy name="email_code">
-                <h1 className="text-2xl md: text-black/90 font-semibold">
+                <h1 className="text-[18px] md:text-2xl text-black/90 font-semibold">
                   Check your email
                 </h1>
 

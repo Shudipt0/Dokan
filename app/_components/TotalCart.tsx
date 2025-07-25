@@ -19,7 +19,7 @@ const TotalCart = ({total} : Props) => {
         </button>
       </div>
       {/* total section */}
-      <div className="w-full h-fit p-3 md:p-0 md:w-[470px] md:h-[324px] md:border-2 border-black/60 flex flex-col gap-5 justify-center px-6 rounded">
+      <div className="w-full h-fit p-3 md:p-6 md:w-[470px] md:h-[324px] md:border-2 border-black/60 flex flex-col gap-5 justify-center px-6 rounded">
         <h2 className="text-[16px] md:text-[20px] text-black/80 font-semibold ">Cart Total</h2>
         {/* subtotal */}
         <div className="w-full flex items-center justify-between">
