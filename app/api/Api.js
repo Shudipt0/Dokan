@@ -20,14 +20,14 @@ const api = axios.create({
 // -----------------------------------------------------------------
 
 // get all products by infinite scroll
-export const fetchAllProducts = async ({pageParam = 1}) => {
+export const fetchAllProducts = async ({ pageParam = 1 }) => {
   const limit = 8;
   const skip = (pageParam -1 ) * limit
   const res = await api.get(`/products/?limit=${limit}&skip=${skip}`);
 const { products } = res.data;
 // console.log("Fetching with start:", pageParam)
   const hasMore = products.length === limit;
-return { products , nextCursor: hasMore ? pageParam + limit : undefined };
+return { products , nextCursor: hasMore ? pageParam + 1 : undefined };
 };
 
 // get all product by Search
