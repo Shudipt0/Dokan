@@ -11,7 +11,7 @@ const HeroNewArrival = () => {
       <HeroHeadLine thumb={"Featured"} title={"New Arrival"} />
       {/* grid items */}
       <div className="w-full flex justify-center ">
-        <div className="w-full md:w-[85%] grid grid-cols-4 grid-flow-col grid-rows-2 md:space-y-8">
+        <div className="w-full md:w-[85%] grid grid-cols-4 grid-flow-col grid-rows-2 space-y-3 md:space-y-8">
           <div className="row-span-2 col-span-2">
             <NewArrivalItemOne />
           </div>
