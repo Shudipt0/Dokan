@@ -5,7 +5,7 @@ import Image from "next/legacy/image"
 
 const NewArrivalItemTree = () => {
   return (
-    <Link href='#' className="h-[105px] md:w-[270px] md:h-[284px] relative bg-black/90 flex justify-center items-center -top-3 md:top-0 ">
+    <Link href='#' className="h-[105px] md:w-[270px] md:h-[284px] relative bg-black/95 flex justify-center items-center -top-3 md:top-0 ">
       <Image
         src={newItemThree}
         alt="category banner"

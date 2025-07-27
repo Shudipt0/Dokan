@@ -6,14 +6,14 @@ const NewArrivalTwo = () => {
   return (
     <Link
       href="/womens-new-dress"
-      className="h-[105px] md:w-[570px] md:h-[284px] relative bg-black/90 flex justify-center items-end"
+      className="h-[105px] md:w-[570px] md:h-[284px] relative bg-black/95 flex justify-center items-end"
     >
       <Image
         src={newItemTwo}
         alt="category banner"
         className="w-full h-full bg-cover "
         width={570}
-        height={284}
+        height={280}
       />
       <div className="absolute bottom-2 left-2 md:bottom-8 md:left-8 md:space-y-2">
         <p className="text-[12px] md:text-[26px] font-semibold text-white ">
