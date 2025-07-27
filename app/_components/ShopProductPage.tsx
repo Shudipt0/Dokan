@@ -26,17 +26,17 @@ const ShopProductPage = () => {
     status,
   } = useInfiniteQuery({
     queryKey: ["products"],
-    queryFn: ({ pageParam = 1 }) => fetchAllProducts({ pageParam }),
+    queryFn: fetchAllProducts,
     initialPageParam: 0,
     getNextPageParam: (lastPage) => lastPage.nextCursor,  
   });
   console.log(data);
  
 useEffect(() => {
-    if (inView) {
-      fetchNextPage()
-    }
-  }, [fetchNextPage, inView])
+  if (inView && hasNextPage && !isFetchingNextPage) {
+    fetchNextPage();
+  }
+}, [inView, fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   return (
     <section className="container mx-auto px-2 md:px-14 space-x-3 bg-white md:flex justify-between pb-8 md:py-8 md:pb-20">
