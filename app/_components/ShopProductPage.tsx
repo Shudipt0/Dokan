@@ -30,7 +30,7 @@ const ShopProductPage = () => {
     initialPageParam: 0,
     getNextPageParam: (lastPage) => lastPage.nextCursor,  
   });
-  console.log(data);
+  // console.log(data);
  
 useEffect(() => {
   if (inView && hasNextPage && !isFetchingNextPage) {

@@ -7,16 +7,16 @@ const api = axios.create({
 
 // get all product by pagination
 
-// export const fetchAllProducts = async (pageNumber, limit) => {
-//   // pagination
-//   // const limit = 12;
-//   const skip = (pageNumber - 1) * limit;
-//   const res = await api.get(`/products/?limit=${limit}&skip=${skip}`);
+export const fetchProducts = async (pageNumber, limit) => {
+  // pagination
+  // const limit = 12;
+  const skip = (pageNumber - 1) * limit;
+  const res = await api.get(`/products/?limit=${limit}&skip=${skip}`);
 
-//   const { products, total } = res.data;
+  const { products, total } = res.data;
 
-//   return { products, totalPages: Math.ceil(total / limit) };
-// };
+  return { products, totalPages: Math.ceil(total / limit) };
+};
 // -----------------------------------------------------------------
 
 // get all products by infinite scroll
@@ -27,7 +27,7 @@ export const fetchAllProducts = async ({ pageParam = 1 }) => {
 const { products } = res.data;
 // console.log("Fetching with start:", pageParam)
   const hasMore = products.length === limit;
-return { products , nextCursor: hasMore ? pageParam + 1 : undefined };
+return { products , nextCursor: hasMore ? pageParam + limit : undefined };
 };
 
 // get all product by Search

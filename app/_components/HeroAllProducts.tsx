@@ -3,14 +3,14 @@ import ProductButton from "./ProductButton";
 import HeroProductPagination from "./HeroProductPagination";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { fetchAllProducts } from "../api/Api";
+import { fetchProducts } from "../api/Api";
 
 const HeroAllProducts = () => {
   const [pageNumber, setPageNumber] = useState(1)
   const limit = 8
   const {data} = useQuery({
     queryKey: ['products', pageNumber, limit],
-    queryFn: () => fetchAllProducts(pageNumber,limit),
+    queryFn: () => fetchProducts(pageNumber,limit),
     staleTime: 1000 * 60 * (60 * 24), // 24 hours
     refetchOnWindowFocus: false,
   });
