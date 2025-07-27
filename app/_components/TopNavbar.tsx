@@ -10,7 +10,7 @@ const TopNavbar = () => {
               Summer Sale For All Swim Suits And Free Express Delivery - OFF
               50%!{" "}
               <span>
-                <Link href="#" className="underline font-bold ">
+                <Link href="/shop" className="underline font-bold ">
                   ShopNow
                 </Link>
               </span>
@@ -25,18 +25,6 @@ const TopNavbar = () => {
                 className="text-black text-[12px] md:text-sm font-medium"
               >
                 English
-              </option>
-              <option
-                value="fr"
-                className="text-black text-[12px] md:text-sm font-medium"
-              >
-                French
-              </option>
-              <option
-                value="es"
-                className="text-black text-[12px] md:text-sm font-medium"
-              >
-                Spanish
               </option>
             </select>
           </div>
