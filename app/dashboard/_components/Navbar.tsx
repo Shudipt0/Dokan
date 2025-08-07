@@ -15,13 +15,14 @@ import { IoIosLogOut } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
    const { setTheme } = useTheme()
   return (
     <nav className="p-4 flex items-center justify-between">
       {/* left */}
-      collapse button
+      <SidebarTrigger/>
       {/* right */}
       <div className="flex items-center gap-4">
         <h1>Dashboard</h1>
