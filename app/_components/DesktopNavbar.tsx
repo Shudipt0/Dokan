@@ -11,12 +11,14 @@ import {
 import { usePathname } from "next/navigation";
 
 const DesktopNavbar = ({
-  NavItem,
+  NavItem, isAdmin
 }: {
   NavItem: { label: string; link: string }[];
+  isAdmin: boolean;
 }) => {
   // active link
   const pathName = usePathname();
+  
   return (
     <div className="hidden container mx-auto h-16 md:flex items-center justify-between px-14">
       {/* logo */}
@@ -30,6 +32,7 @@ const DesktopNavbar = ({
         {NavItem.map((item, index) => {
           // const isActive= pathName.startsWith(item.link);
           return (
+            
             <li
               key={index}
               className={` text-[16px] font-semibold  ${
@@ -40,8 +43,11 @@ const DesktopNavbar = ({
             >
               <Link href={item.link}>{item.label}</Link>
             </li>
+            
+            
           );
         })}
+        {isAdmin && <li><Link href='/dashboard'>Dashboard</Link></li>}
       </ul>
 
       {/* authentication */}

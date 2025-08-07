@@ -1,3 +1,4 @@
+'use client'
 import { useToggleMenu } from '@/context/NavbarToggleContext'
 import React from 'react'
 
