@@ -22,11 +22,23 @@ import {
   SidebarMenuSubItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
-import { Calendar, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@radix-ui/react-collapsible";
+import {
+  Calendar,
+  ChevronDown,
+  Home,
+  Inbox,
+  Plus,
+  Projector,
+  Search,
+  Settings,
+} from "lucide-react";
 import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
-
 
 // Menu items.
 const items = [
@@ -71,7 +83,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarSeparator/>
+      <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
@@ -87,8 +99,7 @@ const AppSidebar = () => {
                   </SidebarMenuButton>
                   {item.title === "Inbox" && (
                     <SidebarMenuBadge>22</SidebarMenuBadge>
-                  )
-                  }
+                  )}
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -97,94 +108,112 @@ const AppSidebar = () => {
         {/* action items */}
         <SidebarGroup>
           <SidebarGroupLabel>Projects</SidebarGroupLabel>
-           <SidebarGroupAction>
+          <SidebarGroupAction>
             <Plus /> <span className="sr-only">Add Project</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/# "><Projector/> See All Projects</Link>
+                  <Link href="/# ">
+                    <Projector /> See All Projects
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/# "><Plus/> Add Projects</Link>
+                  <Link href="/# ">
+                    <Plus /> Add Projects
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
-            </SidebarGroupContent>
+          </SidebarGroupContent>
         </SidebarGroup>
         {/* collapsible groups */}
         <Collapsible defaultOpen className="group/collapsible">
-        <SidebarGroup>
-          <SidebarGroupLabel asChild>
-            <CollapsibleTrigger className="flex items-center justify-between">
-            Collapsible Group
-            <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180"/>
-            </CollapsibleTrigger>
-          </SidebarGroupLabel>
-          <CollapsibleContent>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/# "><Projector/> See All Projects</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/# "><Plus/> Add Projects</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-            </SidebarGroupContent>
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger className="flex items-center justify-between">
+                Collapsible Group
+                <ChevronDown className="transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="/# ">
+                        <Projector /> See All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="/# ">
+                        <Plus /> Add Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
             </CollapsibleContent>
-        </SidebarGroup>
+          </SidebarGroup>
         </Collapsible>
-         {/* Nested items */}
+        {/* Nested items */}
         <SidebarGroup>
           <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/# "><Projector/> See All Projects</Link>
+                  <Link href="/# ">
+                    <Projector /> See All Projects
+                  </Link>
                 </SidebarMenuButton>
                 <SidebarMenuSub>
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
-                      <Link href='#'><Plus/>Add Projects</Link>
+                      <Link href="#">
+                        <Plus />
+                        Add Projects
+                      </Link>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                 </SidebarMenuSub>
-                   <SidebarMenuSub>
+                <SidebarMenuSub>
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
-                      <Link href='#'><Plus/>Add Categories</Link>
+                      <Link href="#">
+                        <Plus />
+                        Add Categories
+                      </Link>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                 </SidebarMenuSub>
               </SidebarMenuItem>
-
             </SidebarMenu>
-            </SidebarGroupContent>
+          </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      {/* footer */}
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
-                  <CgProfile/>
+                  <CgProfile />
                   Shudipto Roy
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>Account</DropdownMenuItem>
                 <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem variant={'destructive'}>Sign Out</DropdownMenuItem>
+                <DropdownMenuItem variant={"destructive"}>
+                  Sign Out
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
