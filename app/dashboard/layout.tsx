@@ -13,7 +13,7 @@ export default async function DashboardLayout({
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
   return (
-    <section className="flex">
+    <section className="flex bg-background">
       {/* Optional dashboard-specific UI, e.g. sidebar */}
       <ThemeProvider
         attribute="class"

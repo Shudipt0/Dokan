@@ -1,5 +1,11 @@
+import PaymentPage from "../payments/page";
+
 const userPage = () => {
-  return <div>user page</div>;
+  return (
+    <div>
+      <PaymentPage />
+    </div>
+  );
 };
 
 export default userPage;

@@ -1,3 +1,4 @@
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
@@ -14,21 +15,16 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
 import Link from "next/link";
+import { AppLineChart } from "../../_components/AppLineChart";
 import CardList from "../../_components/CardList";
+import EditUser from "../../_components/EditUser";
 
 const singlePage = () => {
   return (
-    <div>
+    <div className="">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -122,15 +118,7 @@ const singlePage = () => {
                 <SheetTrigger asChild>
                   <Button>Edit User</Button>
                 </SheetTrigger>
-                <SheetContent>
-                  <SheetHeader>
-                    <SheetTitle>Are you absolutely sure?</SheetTitle>
-                    <SheetDescription>
-                      This action cannot be undone. This will permanently delete
-                      your account and remove your data from our servers.
-                    </SheetDescription>
-                  </SheetHeader>
-                </SheetContent>
+                <EditUser />
               </Sheet>
             </div>
             <div className="space-y-4 mt-4">
@@ -173,9 +161,25 @@ const singlePage = () => {
         {/* right */}
         <div className="w-full xl:w-2/3 space-y-6">
           {/* user card container */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">John Doe</h1>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum, fugit possimus! Ut, alias, veniam nam eum ipsum harum
+              aspernatur quasi ex, enim dicta vel assumenda quaerat sequi
+              officia modi asperiores!F
+            </p>
+          </div>
           {/* chart container */}
-          <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-5">
+            <h1 className="text-xl font-semibold">User Activity</h1>
+            <AppLineChart />
+          </div>
         </div>
       </div>
     </div>
